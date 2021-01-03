@@ -41,7 +41,7 @@ Spread Operator => [...]
 Copy Array
 */
 
-// Define Array 
+// Define Array
 var aData = [];
 
 // Add Data
@@ -59,22 +59,22 @@ aData.pop(); // => aData = ["Serhat","Mercan"]
 
 // Loop => FOR
 for (var i = 0; i < aData.length; i++) {
-	console.log(aData[i]);
+  console.log(aData[i]);
 }
 
 // Loop => FOR - EACH - ARROW FUNCTION
-aData.forEach(item => console.log(item.name));
-["Serhat", "Mercan"].forEach(item => console.log(item));
+aData.forEach((item) => console.log(item.name));
+["Serhat", "Mercan"].forEach((item) => console.log(item));
 
-// Loop => FOR - EACH 
+// Loop => FOR - EACH
 aData.forEach(function (data) {
-	console.log(data);
+  console.log(data);
 });
 
 aData.forEach(fnLoop);
 
 function fnLoop(data) {
-	console.log(data);
+  console.log(data);
 }
 
 // To String
@@ -96,7 +96,7 @@ delete aData[1]; // => aData = ["Serhat", empty]
 aData.splice(1, 0, "Selim", "Elif"); // => aData = ["Serhat", "Selim", "Elif", "Mercan"]
 
 // Remove Items
-aData.splice(0, 1); // 0 => Begin Index , 1 => Items Count ; => aData = ["Selim", "Elif", "Mercan"]	
+aData.splice(0, 1); // 0 => Begin Index , 1 => Items Count ; => aData = ["Selim", "Elif", "Mercan"]
 
 // Merge Two Arrays
 var aData2 = ["Selim", "Elif"];
@@ -111,12 +111,12 @@ aData.reverse(); // => ["Serhat", "Selim", "Mercan", "Elif"]
 // Sort Numberic Array Ascending
 var aNumber = [1, 11, 7, 9];
 aNumber.sort(function (a, b) {
-	return a - b
+  return a - b;
 }); // => [1, 7, 9, 11]
 
 // Sort Numberic Array Descending
 aNumber.sort(function (a, b) {
-	return b - a
+  return b - a;
 }); // => [11, 9, 7, 1]
 
 // Array Sort
@@ -127,72 +127,80 @@ aNumbers.reduce((sum, current) => sum + current); // 119
 
 // MAX & MIN Number in Array
 function fnGetMaxValue(aData) {
-	return Math.max.apply(null, aData);
+  return Math.max.apply(null, aData);
 }
 
 function fnGetMinValue(aData) {
-	return Math.min.apply(null, aData);
+  return Math.min.apply(null, aData);
 }
 fnGetMaxValue(aNumber); // => 11
 fnGetMinValue(aNumber); // => 1
 
-// MAP Method 
+// MAP Method
 var aNumber2 = [];
-aNumber2 = aNumber.map(x => x * 2); // aNumber2 = [2, 22, 14, 18]
+aNumber2 = aNumber.map((x) => x * 2); // aNumber2 = [2, 22, 14, 18]
 
 // MAP Method: Item & Index
 var aData = ["X", "Y", "Z"];
-aData.map((item, index) => (index + 1) + ". " + item); // ["1. X", "2. Y", "3. Z"]
+aData.map((item, index) => index + 1 + ". " + item); // ["1. X", "2. Y", "3. Z"]
 
 // MAP Method: Change Array Of Objects Attribute
-var aArrayObj = [{
-	Key: "1",
-	Value: "10"
-}, {
-	Key: "2",
-	Value: "100"
-}];
+var aArrayObj = [
+  {
+    Key: "1",
+    Value: "10",
+  },
+  {
+    Key: "2",
+    Value: "100",
+  },
+];
 
-aArrayObj = aArrayObj.map(item => {
-	return {
-		ID: item.Key,
-		Value: item.Value
-	};
+aArrayObj = aArrayObj.map((item) => {
+  return {
+    ID: item.Key,
+    Value: item.Value,
+  };
 });
 
 // MAP Method: Delete Array Of Objects Attribute
-aArrayObj = aArrayObj.map(item => {
-	delete item.Value;
+aArrayObj = aArrayObj.map((item) => {
+  delete item.Value;
 });
 
-// MAP Method: Split & Upper Case & Slice & Join 
+// MAP Method: Split & Upper Case & Slice & Join
 fnCamelize = (sData) => {
-	return sData.split('-').map((word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1)).join('');
-}
+  return sData
+    .split("-")
+    .map((word, index) =>
+      index == 0 ? word : word[0].toUpperCase() + word.slice(1)
+    )
+    .join("");
+};
 console.log(fnCamelize("list-style-image")); // "listStyleImage"
 
 // FILTER Method
-aNumber.filter(x => x > 10); // Return the Array => 11 
+aNumber.filter((x) => x > 10); // Return the Array => 11
 
 // REDUCE Method
 aNumber.reduce(function (total, x) {
-	return total + x; // => 1 + 11 + 7 + 9 = 28
+  return total + x; // => 1 + 11 + 7 + 9 = 28
 });
 
 aNumber.reduce((total, x) => total + x, 0); // => 1 + 11 + 7 + 9 = 28
 
 function fnSum(total, value) {
-	return total + value;
+  return total + value;
 }
 aNumber.reduce(fnSum); // => 1 + 11 + 7 + 9 = 28
 
 // EVERY Method
-aNumber.every(x => x > 0); // True
-aNumber.every(x => x > 10); // False
+aNumber.every((x) => x > 0); // True
+aNumber.every((x) => x > 10); // False
 
 // SOME Method
-aNumber.every(x => x > 10); // True
-aNumber.every(x => x > 15); // False
+aNumber.every((x) => x > 10); // True
+aNumber.every((x) => x > 15); // False
 
 // Get Finding Item Index in Array
 aNumber.indexOf(7); // => 2
@@ -203,31 +211,41 @@ aNumber[4] = 11;
 aNumber.lastIndexOf(11); // => 4
 
 // Find
-aNumber.find(x => x > 10); // 11
+aNumber.find((x) => x > 10); // 11
 
 function fnFind(x) {
-	return x > 1;
+  return x > 1;
 }
 aNumber.find(fnFind); // => 11
 
 function fnFindObject(x) {
-	return x.Id === 2;
+  return x.Id === 2;
 }
 
 // Find Index
-aData.findIndex(x => x.Index === 0); // -1 => Does Not Include
+aData.findIndex((x) => x.Index === 0); // -1 => Does Not Include
 
 // Find Index w/ Parameters
-aData.findIndex(x => x.Id === sId || x.Value === sValue); // -1 => Does Not Include
+aData.findIndex((x) => x.Id === sId || x.Value === sValue); // -1 => Does Not Include
 
 // Include
-var aData = ["Hare", "Krishna", "Hare", "Krishna", "Krishna", "Krishna", "Hare", "Hare", ":-O"],
-	aResult = [];
+var aData = [
+    "Hare",
+    "Krishna",
+    "Hare",
+    "Krishna",
+    "Krishna",
+    "Krishna",
+    "Hare",
+    "Hare",
+    ":-O",
+  ],
+  aResult = [];
 
 for (let oData of aData) {
-	if (!aResult.includes(oData)) {
-		aResult.push(oData);
-	}
+  if (!aResult.includes(oData)) {
+    aResult.push(oData);
+  }
 }
 
 // Spread Operator => [...]

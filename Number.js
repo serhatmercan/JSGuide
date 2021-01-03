@@ -10,3 +10,8 @@ console.log(parseInt(iFixed)); // => 9
 
 // Convert to Float
 console.log(parseFloat(iFixed)); // => 9.656
+
+// Convert to Integer
+let value = "10";
+
++value; // => 10
