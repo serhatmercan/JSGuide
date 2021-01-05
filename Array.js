@@ -38,7 +38,8 @@ Find Index => FIND INDEX
 Find Index w/ Parameters => FIND INDEX
 Include Data => Include
 Spread Operator => [...]
-Copy Array
+Copy Array w/out Reference => [...]
+Copy Array w/out Reference => SLICE
 */
 
 // Define Array
@@ -77,6 +78,11 @@ function fnLoop(data) {
   console.log(data);
 }
 
+// Loop => FOR - EACH - Array Object
+aData.forEach((item, index) => {
+  console.log("Index is " + index + ", Item is " + item);
+});
+
 // To String
 aData.toString(); // => Serhat,Mercan
 
@@ -98,6 +104,9 @@ aData.splice(1, 0, "Selim", "Elif"); // => aData = ["Serhat", "Selim", "Elif", "
 // Remove Items
 aData.splice(0, 1); // 0 => Begin Index , 1 => Items Count ; => aData = ["Selim", "Elif", "Mercan"]
 
+// Removed Items to New Array
+removedData = aData.splice(1, 2);  // removedData = ["Elif", "Mercan"]
+
 // Merge Two Arrays
 var aData2 = ["Selim", "Elif"];
 aData = aData.concat(aData2); // => aData = ["Serhat", "Mercan", "Selim", "Elif"]
@@ -110,14 +119,10 @@ aData.reverse(); // => ["Serhat", "Selim", "Mercan", "Elif"]
 
 // Sort Numberic Array Ascending
 var aNumber = [1, 11, 7, 9];
-aNumber.sort(function (a, b) {
-  return a - b;
-}); // => [1, 7, 9, 11]
+aNumber.sort((a, b) => a - b ); // => [1, 7, 9, 11]
 
 // Sort Numberic Array Descending
-aNumber.sort(function (a, b) {
-  return b - a;
-}); // => [11, 9, 7, 1]
+aNumber.sort((a, b) => b - a ); // => [11, 9, 7, 1]
 
 // Array Sort
 aNumbers = [1, 5, 99, 3, 4, 7];
@@ -180,7 +185,7 @@ fnCamelize = (sData) => {
 console.log(fnCamelize("list-style-image")); // "listStyleImage"
 
 // FILTER Method
-aNumber.filter((x) => x > 10); // Return the Array => 11
+aNumber.filter(x => x > 10); // Return the Array => 11
 
 // REDUCE Method
 aNumber.reduce(function (total, x) {
@@ -230,16 +235,16 @@ aData.findIndex((x) => x.Id === sId || x.Value === sValue); // -1 => Does Not In
 
 // Include
 var aData = [
-    "Hare",
-    "Krishna",
-    "Hare",
-    "Krishna",
-    "Krishna",
-    "Krishna",
-    "Hare",
-    "Hare",
-    ":-O",
-  ],
+  "Hare",
+  "Krishna",
+  "Hare",
+  "Krishna",
+  "Krishna",
+  "Krishna",
+  "Hare",
+  "Hare",
+  ":-O",
+],
   aResult = [];
 
 for (let oData of aData) {
@@ -254,5 +259,13 @@ const aSercansFamily = ["Sercan", "Yeliz", "Elif", "Selim"];
 
 [...aMehmetsFamily, "X", ...aSercansFamily]; // ["Mehmet", "Fatma", "Serhat", "X", "Sercan", "Yeliz", "Elif", "Selim"]
 
-// Copy Array
+// Copy Array w/out Reference => [...]
 let aCopyData = [...aData];
+
+let numbers = [1, 4, 10, 9, 2];
+Math.max(...numbers); // => 10
+
+// Copy Array w/out Reference => SLICE
+let data = [1, 2, 3];
+let copyData = data.slice();  // => [1, 2, 3] 
+let copyItems = data.slice(0, 2); // => [1, 2]
