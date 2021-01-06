@@ -40,6 +40,7 @@ Include Data => Include
 Spread Operator => [...]
 Copy Array w/out Reference => [...]
 Copy Array w/out Reference => SLICE
+Destructure Array -> Return Two or More Parameters
 */
 
 // Define Array
@@ -119,10 +120,10 @@ aData.reverse(); // => ["Serhat", "Selim", "Mercan", "Elif"]
 
 // Sort Numberic Array Ascending
 var aNumber = [1, 11, 7, 9];
-aNumber.sort((a, b) => a - b ); // => [1, 7, 9, 11]
+aNumber.sort((a, b) => a - b); // => [1, 7, 9, 11]
 
 // Sort Numberic Array Descending
-aNumber.sort((a, b) => b - a ); // => [11, 9, 7, 1]
+aNumber.sort((a, b) => b - a); // => [11, 9, 7, 1]
 
 // Array Sort
 aNumbers = [1, 5, 99, 3, 4, 7];
@@ -269,3 +270,25 @@ Math.max(...numbers); // => 10
 let data = [1, 2, 3];
 let copyData = data.slice();  // => [1, 2, 3] 
 let copyItems = data.slice(0, 2); // => [1, 2]
+
+// Destructure Array 
+const numbers = [1, 2, 3, 4, 5];
+
+function findMinMax(nums) {
+  let minNum = nums[0];
+  let maxNum = nums[0];
+
+  for (const num of nums) {
+    if (num < minNum) {
+      minNum = num;
+    }
+    if (maxNum < num) {
+      maxNum = num;
+    }
+  }
+
+  return [minNum, maxNum];
+}
+
+const [min, max] = findMinMax(numbers);
+console.log(min, max); // => 1, 5

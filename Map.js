@@ -1,27 +1,26 @@
-var mMap = new Map([
-	["Amount1", 100],
-	["Amount2", 250],
-	["Amount3", 500]
-]);
+// Create a Map
+const mapData1 = { id: 1 };
+const mapData2 = { id: 2 };
 
-// Map(3) {"Amount1" => 100, "Amount2" => 250, "Amount3" => 500}
+const mapData = new Map([[mapData1, [{ key: "Amount1", price: 100 }]]]);
 
-// Iterate Over Keys
-for (let amountKey of mMap.keys()) {
-	console.log(amountKey); // Amount1 - Amount2 - Amount3
-}
-// Iterate Over Values
-for (let amountValue of mMap.values()) {
-	console.log(amountValue); // 100, 250, 500
-}
-// Iterate Over Entries
-for (let entry of mMap) {
-	console.log(entry); // ["Amount1", 100] , ["Amount2", 250] , ["Amount3", 500]
-}
+// Add Data to Map
+mapData.set(mapData2, [{ key: "Amount2", price: 250 }]);
 
-var mMap = new Map();
-mMap.set("Banana", 10);
-mMap.set("Orange", 20);
-mMap.set("Meat", 50);
-// Map(3) {"Banana" => 10, "Orange" => 20, "Meat" => 50}
-mMap.get("Banana"); // 10
+// List Map
+for (const [key, value] of mapData.entries()) {
+	console.log(key, value);
+};
+
+// List Map's Key
+for (const key of mapData.keys()) {
+	console.log(key);
+};
+
+// List Map's Value
+for (const value of mapData.values()) { 
+	console.log(value); 
+};
+
+// Size of Map
+mapData.size; // => 2
