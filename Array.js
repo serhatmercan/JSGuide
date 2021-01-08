@@ -188,6 +188,19 @@ console.log(fnCamelize("list-style-image")); // "listStyleImage"
 // FILTER Method
 aNumber.filter(x => x > 10); // Return the Array => 11
 
+// FILTER w/ Array Object
+const dataObj1 = { name: "Serhat" };
+const dataObj2 = { name: "Sercan" };
+const dataObj3 = { name: "Selim" };
+
+const dataArr = [];
+
+dataArr.push(dataObj1);
+dataArr.push(dataObj2);
+dataArr.push(dataObj3);
+
+const filteredData = dataArr.filter(data => data.name.includes("Ser")); // => dataObj1 & dataObj2
+
 // REDUCE Method
 aNumber.reduce(function (total, x) {
   return total + x; // => 1 + 11 + 7 + 9 = 28

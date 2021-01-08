@@ -10,7 +10,9 @@ Prototypes - 2
 Return Array Object
 Computed Properties
 Assign
+Assign: Copy Object w/out Reference
 Copy Object
+Copy Array in Object w/out Reference
 Method: Changing a Property Value			=> .defineProperty
 Method: Adding a Property					=> .defineProperty
 Method: Adding Getters & Setters			=> .defineProperty 
@@ -138,9 +140,28 @@ Object.assign(oUser, {
   Surname: "Mercan",
 }); // {Name: "Serhat", Surname: "Mercan"}
 
+// Assign: Copy Object w/out Reference
+let obj = {
+  "name": "Serhat",
+  "notes": [],
+};
+
+let copyObj = Object.assign({}, obj);
+
 // Copy Object
 let oData = { age: 26 };
 let oCopyData = { ...oData };
+
+// Copy Array in Object w/out Reference
+let obj = {
+  "name": "Serhat",
+  "notes": [],
+};
+
+let copyObj = {
+  ...obj,
+  "notes": obj.notes
+};
 
 // METHODS
 var oPerson = {
@@ -185,10 +206,10 @@ let aPrices = {
 let aDoublePrices = Object.fromEntries(
   Object.entries(aPrices).map(([key, value]) => [key, value * 2])
 );
-/* 
+/*
 aDoublePrices => {
-	Banana: 2,
-	Orange: 4,
-	Meat: 8
+  Banana: 2,
+  Orange: 4,
+  Meat: 8
 }
 */
