@@ -218,8 +218,8 @@ aNumber.every((x) => x > 0); // True
 aNumber.every((x) => x > 10); // False
 
 // SOME Method
-aNumber.every((x) => x > 10); // True
-aNumber.every((x) => x > 15); // False
+aNumber.some((x) => x > 10); // True
+aNumber.some((x) => x > 15); // False
 
 // Get Finding Item Index in Array
 aNumber.indexOf(7); // => 2

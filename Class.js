@@ -1,5 +1,7 @@
 // CLASS
 class clCar {
+	id = "";	// Field	
+
 	constructor(sCarName) {
 		this._carname = sCarName;
 	}
@@ -13,7 +15,7 @@ class clCar {
 		return this._carname;
 	}
 	set carName(x) {
-		this._carname = x;
+		this._carname = x;	// Property
 	}
 }
 
@@ -40,3 +42,6 @@ oCar.carName; // "Ford"
 var oCarModel = new clModel("Ford", "Mustang");
 
 oCarModel.show(); // "I have a Ford, it is a Mustang"
+
+// InstanceOf Operator
+oCar instanceof clCar; // => True / False
