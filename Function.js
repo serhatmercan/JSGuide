@@ -8,6 +8,7 @@ New Syntax: Declare The Function w/ Parameters
 New Syntax: Closure
 Default Parameters
 Rest Operator
+Recursion
 */
 
 // The Arguments Object
@@ -87,3 +88,10 @@ const sumUp = (a, b, ...numbers) => {
 };
 
 console.log(sumUp(1, 2, 3, 4, 5, 6)); // => 21
+
+// Recursion
+function powerOf(x, n) {
+  return n == 1 ? x : x * powerOf(x, n - 1);
+}
+
+console.log(powerOf(2, 3));
