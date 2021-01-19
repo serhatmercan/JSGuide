@@ -15,3 +15,14 @@ console.log(parseFloat(iFixed)); // => 9.656
 let value = "10";
 
 +value; // => 10
+
+// Sum Two Float Numbers 
+let number = (0.2 + 0.4).toFixed(1);    // => 0.6
+
+// Convert Number To Binary
+let number = (7).toString(2);   // 111
+
+// Generate Random Number Between Two Integers
+function generateRandomNumberBetweenTwoIntegers(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
