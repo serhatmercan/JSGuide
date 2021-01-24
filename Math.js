@@ -1,14 +1,15 @@
 // --> MATH FUNCTION <--
 
 // ROUND
-var fRoundUp = 2.8,
-	fRoundDown = 2.3;
-Math.round(fRoundUp); // 3
-Math.round(fRoundDown); // 2
+var roundUp = 2.8,
+	roundDown = 2.3;
+
+Math.round(roundUp); // 3
+Math.round(roundDown); // 2
 
 // POW
-var iPow = Math.pow(5, 2);
-console.log("5 ^ 2 = " + iPow); // => 5 ^ 2 = 25
+var pow = Math.pow(5, 2);
+console.log("5 ^ 2 = " + pow); // => 5 ^ 2 = 25
 
 // SQUARE ROOT => SQRT
 Math.sqrt(64); // 8

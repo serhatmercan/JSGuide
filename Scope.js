@@ -2,7 +2,7 @@
 myFunction();
 
 function myFunction() {
-	sCarName = "Opel";
+	carName = "Opel";
 }
 
-sCarName; // Opel
+carName; // Opel

@@ -1,15 +1,15 @@
 // To Fixed Method
-var iFixed = 9.656;
-console.log(iFixed.toFixed(0)); // => 10
-console.log(iFixed.toFixed(2)); // => 9.66
-console.log(iFixed.toFixed(4)); // => 9.6560
-console.log(iFixed.toFixed(6)); // => 9.656000
+var fixedValue = 9.656;
+console.log(fixedValue.toFixed(0)); // => 10
+console.log(fixedValue.toFixed(2)); // => 9.66
+console.log(fixedValue.toFixed(4)); // => 9.6560
+console.log(fixedValue.toFixed(6)); // => 9.656000
 
 // Convert to Integer
-console.log(parseInt(iFixed)); // => 9
+console.log(parseInt(fixedValue)); // => 9
 
 // Convert to Float
-console.log(parseFloat(iFixed)); // => 9.656
+console.log(parseFloat(fixedValue)); // => 9.656
 
 // Convert to Integer
 let value = "10";

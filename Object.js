@@ -1,28 +1,6 @@
-// OBJECT
-/* 
-Inner Object
-Loop => IN
-Call Method
-Define an Object => Default - Get - Set
-Constructor
-Prototypes - 1
-Prototypes - 2
-Return Array Object
-Computed Properties
-Assign
-Assign: Copy Object w/out Reference
-Copy Object
-Copy Array in Object w/out Reference
-Method: Changing a Property Value			=> .defineProperty
-Method: Adding a Property					=> .defineProperty
-Method: Adding Getters & Setters			=> .defineProperty 
-Method: Get Values To Array 				=> .values
-Method: Returns all properties as an array	=> .getOwnPropertyNames
-Method: Accessing the prototype 			=> .getPrototypeOf
-Method: Entries					 			=> .entries
-*/
+
 // Inner Object
-var oPerson = {
+var person = {
   firstName: "Serhat",
   lastName: "Mercan",
   age: function (iYear) {
@@ -30,70 +8,70 @@ var oPerson = {
   },
 };
 console.log(
-  oPerson.firstName + " " + oPerson.lastName + " age is " + oPerson.age(2020)
+  person.firstName + " " + person.lastName + " age is " + person.age(2020)
 ); // Serhat Mercan age is 26
 
 // Loop
-var oPerson = {
+var person = {
   fname: "Serhat",
   lname: "Mercan",
   age: 25,
 };
-var sText = "";
-for (var i in oPerson) {
-  sText += person[i] + " "; // "John Doe 25 "
+var text = "";
+for (var i in person) {
+  text += person[i] + " "; // "John Doe 25 "
 }
 
 // Call Method
-var oPerson1 = {
+var person1 = {
   fullName: function () {
     return this.firstName + " " + this.lastName;
   },
 };
-var oPerson2 = {
+var person2 = {
   firstName: "Serhat",
   lastName: "Mercan",
 };
-oPerson1.fullName.call(oPerson2); // "Serhat Mercan"
+person1.fullName.call(person2); // "Serhat Mercan"
 
 // Define an Object => Default - Get - Set
-var oObj = {
+var obj = {
   counter: 0,
 };
-Object.defineProperty(oObj, "reset", {
+Object.defineProperty(obj, "reset", {
   get: function () {
     this.counter = 0;
   },
 });
-Object.defineProperty(oObj, "increment", {
+Object.defineProperty(obj, "increment", {
   get: function () {
     this.counter++;
   },
 });
-Object.defineProperty(oObj, "add", {
+Object.defineProperty(obj, "add", {
   set: function (value) {
     this.counter += value;
   },
 });
 
-oObj.add = 10; // obj.counter = 10
-oObj.increment; // obj.counter = 11
-oObj.reset; // obj.counter = 0
+obj.add = 10; // obj.counter = 10
+obj.increment; // obj.counter = 11
+obj.reset; // obj.counter = 0
 
 // Constructor
-function fnPerson(first, last, age, eye) {
+function getPerson(first, last, age, eye) {
   this.firstName = first;
   this.lastName = last;
   this.age = age;
   this.eyeColor = eye;
 }
 
-var myFather = new fnPerson("Mehmet", "Mercan", 62, "brown"),
-  myMother = new fnPerson("Fatma", "Mercan", 53, "brown");
+let myFather = new getPerson("Mehmet", "Mercan", 62, "brown");
+let myMother = new getPerson("Fatma", "Mercan", 53, "brown");
 
 // Prototypes - 1
-fnPerson.prototype.nationality = "Turkey"; // myFather.nationality => "Turkey"
-fnPerson.prototype.fullname = function () {
+getPerson.prototype.nationality = "Turkey"; // myFather.nationality => "Turkey"
+getPerson.prototype.fullname = function () {
   return this.firstName + " " + this.lastName; // myMother.fullname() => Fatma Mercan
 };
 
@@ -125,18 +103,18 @@ getObject = () => {
 };
 
 // Computed Properties
-var oProp = "Name";
-var oObj = {
-  [oProp]: "Serhat",
+var prop = "Name";
+var obj = {
+  [prop]: "Serhat",
 };
-oObj.Name; // Serhat
+obj.Name; // Serhat
 
 // Assign
-let oUser = {
+let user = {
   Name: "Serhat",
 };
 
-Object.assign(oUser, {
+Object.assign(user, {
   Surname: "Mercan",
 }); // {Name: "Serhat", Surname: "Mercan"}
 
@@ -149,8 +127,8 @@ let obj = {
 let copyObj = Object.assign({}, obj);
 
 // Copy Object
-let oData = { age: 26 };
-let oCopyData = { ...oData };
+let data = { age: 26 };
+let copyData = { ...data };
 
 // Copy Array in Object w/out Reference
 let obj = {
@@ -164,47 +142,47 @@ let copyObj = {
 };
 
 // METHODS
-var oPerson = {
+var person = {
   firstName: "Serhat",
   lastName: "Mercan",
   language: "TR",
 };
 
 // Method: Changing a Property Value
-Object.defineProperty(oPerson, "language", {
+Object.defineProperty(person, "language", {
   value: "EN",
-}); // oPerson => {firstName: "Serhat", lastName: "Mercan", language: "EN"}
+}); // person => {firstName: "Serhat", lastName: "Mercan", language: "EN"}
 
 // Method: Adding a Property
-Object.defineProperty(oPerson, "country", {
+Object.defineProperty(person, "country", {
   value: "Turkey",
-}); // oPerson => {firstName: "Serhat", lastName: "Mercan", language: "EN", country: "Turkey"}
+}); // person => {firstName: "Serhat", lastName: "Mercan", language: "EN", country: "Turkey"}
 
 // Method: Adding Getters & Setters
-Object.defineProperty(oPerson, "fullName", {
+Object.defineProperty(person, "fullName", {
   get: function () {
     return this.firstName + " " + this.lastName;
   },
-}); // oPerson.fullname => Serhat Mercan
+}); // person.fullname => Serhat Mercan
 
 // Method: Get Values To Array
-Object.values(oPerson); // ["Serhat", "Mercan", "TR"]
+Object.values(person); // ["Serhat", "Mercan", "TR"]
 
 // Method: Returns all properties as an array
-Object.getOwnPropertyNames(oPerson); // ["firstName", "lastName", "language", "country", "fullName"]
+Object.getOwnPropertyNames(person); // ["firstName", "lastName", "language", "country", "fullName"]
 
 // Method: Accessing the prototype
-Object.getPrototypeOf(oPerson); // {constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, ...}
+Object.getPrototypeOf(person); // {constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, ...}
 
 // Method: Entries
-let aPrices = {
+let prices = {
   Banana: 1,
   Orange: 2,
   Meat: 4,
 };
 
 let aDoublePrices = Object.fromEntries(
-  Object.entries(aPrices).map(([key, value]) => [key, value * 2])
+  Object.entries(prices).map(([key, value]) => [key, value * 2])
 );
 /*
 aDoublePrices => {

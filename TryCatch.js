@@ -8,9 +8,9 @@ try {
 // THROW
 var x;
 
-fnError(x);
+getError(x);
 
-function fnError(x) {
+function getError(x) {
 	try {
 		if (x == "") throw "empty";
 		if (isNaN(x)) throw "not a number";
@@ -25,9 +25,9 @@ function fnError(x) {
 }
 
 // RANGE & REFERENCE & SYNTAX & TYPE & URI ERROR
-var iRange = 1;
+var range = 1;
 try {
-	iRange.toPrecision(500); // A number cannot have 500 significant digits
+	range.toPrecision(500); // A number cannot have 500 significant digits
 } catch (err) {
 	console.log(err.name);
 }

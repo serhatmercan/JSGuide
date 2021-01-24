@@ -18,28 +18,27 @@ function fnAJAX() {
 // => Response Text
 /*
 {
-	"data": {
-		"id": 3,
-		"name": "true red",
-		"year": 2002,
-		"color": "#BF1932",
-		"pantone_value": "19-1664"
-	},
-	"ad": {
-		"company": "StatusCode Weekly",
-		"url": "http://statuscode.org/",
-		"text": "A weekly newsletter focusing on software development, infrastructure, the server, performance, and the stack end of things."
-	}
+  "data": {
+    "id": 3,
+    "name": "true red",
+    "year": 2002,
+    "color": "#BF1932",
+    "pantone_value": "19-1664"
+  },
+  "ad": {
+    "company": "StatusCode Weekly",
+    "url": "http://statuscode.org/",
+    "text": "A weekly newsletter focusing on software development, infrastructure, the server, performance, and the stack end of things."
+  }
 }
 */
 function decodeXML(that) {
-  var oXMLDoc = that.responseXML,
-    oParagraph = xmlDoc.getElementsByTagName("p");
-  sData = oParagraph[0].getElementsByTagName("DATA_COLUMN")[0].childNodes[0]
-    .nodeValue; // FOR
+  var XMLDoc = that.responseXML,
+      paragraph = XMLDoc.getElementsByTagName("p");
+
+  data = paragraph[0].getElementsByTagName("DATA_COLUMN")[0].childNodes[0].nodeValue; // FOR
 }
 
-//
 // AJAX: Fetch
 function getWeather(woeid) {
   fetch(
@@ -56,5 +55,6 @@ function getWeather(woeid) {
     })
     .catch((error) => console.log(error));
 }
+
 getWeather(2487956);
 getWeather(44418);

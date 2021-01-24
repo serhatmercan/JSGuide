@@ -1,6 +1,6 @@
 // Call Parent
-var oItem = this.byId("idItem").getDomRef(); // => this.document.getElementById("idItem").
-oItem.parentElement.style.width = "100%";
+var item = this.byId("idItem").getDomRef(); // => this.document.getElementById("idItem").
+item.parentElement.style.width = "100%";
 
 // Find HTML Elements
 document.getElementById("idElement"); // Find Element w/ ID	=>	ID  	=	"idElement"
@@ -12,7 +12,7 @@ document.forms["form1"][0]; // Find Element w/ Form			=>	Form	=	form1
 // Changing HTML Style
 /*
 <div id="div1"> 
-	<p id="demo">Demo Paragraph</p>
+  <p id="demo">Demo Paragraph</p>
 </div>
 */
 
@@ -26,35 +26,35 @@ document.getElementById("demo").addEventListener("click", function () {
   alert("Hello World!");
 });
 // Click - 2
-document.getElementById("myBtn").addEventListener("click", myFunction);
+document.getElementById("myBtn").addEventListener("click", sayHello);
 
-function myFunction() {
+function sayHello() {
   alert("Hello World!");
 }
 
 // Nodes
-var oParagraph = document.createElement("p"),
-  oNode = document.createTextNode("This is a new paragraph."),
-  oParent = document.getElementById("div1"),
-  oChild = document.getElementById("demo");
+let paragraph = document.createElement("p");
+let node = document.createTextNode("This is a new paragraph.");
+let parent = document.getElementById("div1");
+let child = document.getElementById("demo");
 
-oParagraph.appendChild(oNode); // Creating a New Nodes
-oParent.appendChild(oParagraph); // Add Node To Division Ending
-oParent.insertBefore(oParagraph, oChild); // Add Node To Insert Before Child
-oParent.replaceChild(oParagraph, oChild); // Replace Place Children
-oParent.remove(); // Remove Node From Page
-oParent.removeChild(child); // Remove Node From Parent
+paragraph.appendChild(node); // Creating a New Nodes
+parent.appendChild(paragraph); // Add Node To Division Ending
+parent.insertBefore(paragraph, child); // Add Node To Insert Before Child
+parent.replaceChild(paragraph, child); // Replace Place Children
+parent.remove(); // Remove Node From Page
+parent.removeChild(child); // Remove Node From Parent
 
 // Collection
-var oCollection = document.getElementsByTagName("p");
-for (var i = 0; i < oCollection.length; i++) {
-  oCollection[i].style.color = "red";
+var collection = document.getElementsByTagName("p");
+for (var i = 0; i < collection.length; i++) {
+  collection[i].style.color = "red";
 }
 
 // Nodes List
-var oNodelist = document.querySelectorAll("p");
-for (var i = 0; i < oNodelist.length; i++) {
-  oNodelist[i].style.color = "red";
+var nodeList = document.querySelectorAll("p");
+for (var i = 0; i < nodeList.length; i++) {
+  nodeList[i].style.color = "red";
 }
 
 // Create Element in HTML

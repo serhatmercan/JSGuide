@@ -1,5 +1,5 @@
 // IF(oEvent.getParameter("arguments").value) 
-var sValue = oEvent.getParameter("arguments").value ? oEvent.getParameter("arguments").value : "";
+var value = oEvent.getParameter("arguments").value ? oEvent.getParameter("arguments").value : "";
 
 // isNaN
 var age = 10, // => "10"

@@ -35,21 +35,22 @@ navigator.javaEnabled(); // false
 // POPUP ALERT
 window.alert("XSMERCAN"); // Popup Alert
 window.alert('Hello\nHow are you?'); // Popup Alert w/ New Line
-var sResult = window.confirm("Are you Serhat"); // Yes pr No Question Alert
-var sResult = window.prompt("Please Enter Your Name:", "Serhat Mercan"); // Input Alert w/ Hint
+var result = window.confirm("Are you Serhat"); // Yes pr No Question Alert
+var result = window.prompt("Please Enter Your Name:", "Serhat Mercan"); // Input Alert w/ Hint
 
 // TIMING
 // Create a Timer
-var oTime = setTimeout(function fnHello() {
+var time = setTimeout(function fnHello() {
 	alert("Hello");
 }, 5000); // 5000 msec => 5 seconds 
 // Stop a Time
-clearTimeout(oTime);
+clearTimeout(time);
 
 // Create & Stop Current Time
 // HTML = <p id="demo"/>
-var oTime = setInterval(function fnTime() {
-	var dDate = new Date();
-	document.getElementById("demo").innerHTML = dDate.toLocaleTimeString();
+var time = setInterval(function fnTime() {
+	var date = new Date();
+	document.getElementById("demo").innerHTML = date.toLocaleTimeString();
 }, 1000);
-clearInterval(oTime);
+
+clearInterval(time);

@@ -5,9 +5,9 @@ setTimeout(() => alert("Hello"), 1000);
 setTimeout(() => alert("Hello"));
 
 // Set & Reset Time Out 
-let tTimeout = setTimeout(() => alert("Hello"), 1000);
-clearTimeout(tTimeout);
+let timeOut = setTimeout(() => alert("Hello"), 1000);
+clearTimeout(timeOut);
 
 // Set & Reset Time Out w/ Interval
-let tInterval = setInterval(() => alert("Hello"), 1000);
-clearTimeout(tInterval);
+let interval = setInterval(() => alert("Hello"), 1000);
+clearTimeout(interval);

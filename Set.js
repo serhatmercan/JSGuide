@@ -1,10 +1,10 @@
-let aValues = ["Hare", "Krishna", "Hare", "Krishna", "Krishna", "Krishna", "Hare", "Hare", ":-O"];
+let values = ["Hare", "Krishna", "Hare", "Krishna", "Krishna", "Krishna", "Hare", "Hare", ":-O"];
 
-fnUnique = (aData) => {
-	return Array.from(new Set(aData));
+fnUnique = (data) => {
+	return Array.from(new Set(data));
 }
 
-console.log(fnUnique(aValues)); // ["Hare", "Krishna", ":-O"]
+console.log(fnUnique(values)); // ["Hare", "Krishna", ":-O"]
 
 // Create a Set
 const data = new Set(["Serhat", "Mercan", 26]);

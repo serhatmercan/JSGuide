@@ -1,5 +1,5 @@
 // Create JSON
-var sJSON = '{"family":['
+var JSONData = '{"family":['
 '{"firstName":"Serhat","lastName":"Mercan" },'
 '{"firstName":"Elif","lastName":"Mercan" },'
 '{"firstName":"Selim","lastName":"Mercan" }]}';
@@ -10,34 +10,34 @@ this.getView().setModel(new JSONModel({
 	Name: ""
 }), "modelJSON");
 
-var aFamily = JSON.parse(sJSON).family;
+var families = JSON.parse(JSONData).family;
 
-for (var i in aFamily) {
-	console.log(aFamily[i]); // {firstName: "Serhat", lastName: "Mercan"}, ...
+for (var i in families) {
+	console.log(families[i]); // {firstName: "Serhat", lastName: "Mercan"}, ...
 }
 
 // Convert Message
-var sError;
+var error;
 
 aParams.error = function (oError) {
 	if (oError.responseText) {
-		sError = JSON.parse(oError.responseText).error.innererror.errordetails[0];
-		MessageToast.show(sError.message);
-		if (sError.severity === "success") {}
+		error = JSON.parse(oError.responseText).error.innererror.errordetails[0];
+		MessageToast.show(error.message);
+		if (error.severity === "success") { }
 	}
 }.bind(this);
 
 // Attributes
-var oPerson = {
+var person = {
 	name: "Serhat",
 	age: 26,
 	city: "İstanbul"
 };
 
-var oJSON = JSON.stringify(oPerson); // Send Data	=> "{"name":"Serhat","age":26,"city":"İstanbul"}"
-JSON.parse(oJSON); // Display Data As Object
+var JSONData = JSON.stringify(person); // Send Data	=> "{"name":"Serhat","age":26,"city":"İstanbul"}"
+JSON.parse(JSONData); // Display Data As Object
 
 // Local Storage
-localStorage.setItem("lsJSON", oJSON); // Store Data 
+localStorage.setItem("lsJSON", JSONData); // Store Data 
 localStorage.getItem("lsJSON"); // Retrieve Data
 localStorage.removeItem("lsJSON");

@@ -1,15 +1,15 @@
 // CLASS
-class clCar {
+class Car {
 	id = "";	// Field	
 
-	constructor(sCarName) {
-		this._carname = sCarName;
+	constructor(carName) {
+		this._carName = carName;
 	}
 	present() {
-		return "I have a " + this._carname;
+		return "I have a " + this._carName;
 	}
-	static fnDescription(sName) {
-		return sName + "'s Car Class";
+	static getDescription(name) {
+		return name + "'s Car Class";
 	}
 	get carName() {
 		return this._carname;
@@ -19,29 +19,29 @@ class clCar {
 	}
 }
 
-class clModel extends clCar {
-	constructor(sCarName, sCarModel) {
-		super(sCarName);
-		this._carmodel = sCarModel;
+class Model extends Car {
+	constructor(carName, carModel) {
+		super(carName);
+		this._carmodel = carModel;
 	}
 	show() {
 		return this.present() + ', it is a ' + this._carmodel;
 	}
 }
 
-var oCar = new clCar("Opel");
+let car = new Car("Opel");
 
-clCar.fnDescription("Serhat"); // Serhat's Car Class
+car.getDescription("Serhat"); // Serhat's Car Class
 
-oCar.carname; // Opel
-oCar.present(); // I have a Opel
+car.carname; // Opel
+car.present(); // I have a Opel
 
-oCar.carName = "Ford";
-oCar.carName; // "Ford" 
+car.carName = "Ford";
+car.carName; // "Ford" 
 
-var oCarModel = new clModel("Ford", "Mustang");
+let carModel = new Model("Ford", "Mustang");
 
-oCarModel.show(); // "I have a Ford, it is a Mustang"
+carModel.show(); // "I have a Ford, it is a Mustang"
 
 // InstanceOf Operator
-oCar instanceof clCar; // => True / False
+car instanceof Car; // => True / False

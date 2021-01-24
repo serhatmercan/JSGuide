@@ -1,82 +1,74 @@
-// Function Context
-/* 
-The Arguments Object
-CALL & APPLY
-Function Binding
-New Syntax: The Function w/ out Parameters
-New Syntax: Declare The Function w/ Parameters
-New Syntax: Closure
-Default Parameters
-Rest Operator
-Recursion
-*/
-
 // The Arguments Object
-function fnSumAll() {
-  var i,
-    iSum = 0;
-  for (i = 0; i < arguments.length; i++) {
-    iSum += arguments[i];
+function sumAll() {
+  let sum = 0;
+
+  for (let i = 0; i < arguments.length; i++) {
+    sum += arguments[i];
   }
-  return iSum;
+
+  return sum;
 }
-fnSumAll(5, 10, 15, 20); // => 50
+
+sumAll(5, 10, 15, 20); // => 50
 
 // CALL & APPLY
-var oPerson = {
+var person = {
   fullName: function (city, country) {
     return this.firstName + " " + this.lastName + "," + city + "," + country;
   },
 };
 
-var oPersonX = {
+var personX = {
   firstName: "Serhat",
   lastName: "Mercan",
 };
 
-oPerson.fullName.call(oPersonX, "İstanbul", "Turkey"); // => "Serhat Mercan,İstanbul,Turkey"
-oPerson.fullName.apply(oPersonX, ["İstanbul", "Turkey"]); // => "Serhat Mercan,İstanbul,Turkey"
+person.fullName.call(personX, "İstanbul", "Turkey"); // => "Serhat Mercan,İstanbul,Turkey"
+person.fullName.apply(personX, ["İstanbul", "Turkey"]); // => "Serhat Mercan,İstanbul,Turkey"
 
 // Function Binding
-let oUser = {
-  Name: "Serhat",
+let user = {
+  name: "Serhat",
 };
 
-function fnSayName(sValue) {
-  console.log(sValue + " " + this.Name);
+function sayName(value) {
+  console.log(value + " " + this.name);
 }
 
-fnSayName.bind(oUser)("Hello"); // Hello Serhat
+sayName.bind(user)("Hello"); // Hello Serhat
 
 // New Syntax: The Function w/ out Parameters
-let fnHello = new Function('console.log("Hello")');
-fnHello();
+let hello = new Function('console.log("Hello")');
+
+hello();
 
 // New Syntax: Declare The Function w/ Parameters
-let fnSum = new Function("a", "b", "return a + b");
-fnSum(1, 2); // 3
+let sum = new Function("a", "b", "return a + b");
+sum(1, 2); // 3
 
 // New Syntax: Closure
-let fnClosure = () => {
-  let fnHello = new Function('console.log("Hello")');
-  return fnHello;
+let closure = () => {
+  let hello = new Function('console.log("Hello")');
+  return hello;
 };
-fnClosure()(); // Hello
+
+closure()(); // Hello
 
 // Default Parameters
 function getPerson(
-  sFirstName,
-  iYearOfBirth,
-  sLastName = "Mercan",
-  sNationality = "Turkey"
+  firstName,
+  yearOfBirth,
+  lastName = "Mercan",
+  nationality = "Turkey"
 ) {
-  this.FirstName = sFirstName;
-  this.YearOfBirth = iYearOfBirth;
-  this.LastName = sLastName;
-  this.Nationality = sNationality;
+  this.firstName = firstName;
+  this.yearOfBirth = yearOfBirth;
+  this.lastName = lastName;
+  this.nationality = nationality;
 }
-let oSerhat = new getPerson("Serhat", 1994); // {FirstName: "Serhat", YearOfBirth: 1994, LastName: "Mercan", Nationality: "Turkey"}
-let oFatma = new getPerson("Fatma", 1967, "Tercan"); // {FirstName: "Fatma", YearOfBirth: 1967, LastName: "Tercan", Nationality: "Turkey"}
+
+let serhat = new getPerson("Serhat", 1994); // {FirstName: "Serhat", YearOfBirth: 1994, LastName: "Mercan", Nationality: "Turkey"}
+let fatma = new getPerson("Fatma", 1967, "Tercan"); // {FirstName: "Fatma", YearOfBirth: 1967, LastName: "Tercan", Nationality: "Turkey"}
 
 // Rest Operator
 const sumUp = (a, b, ...numbers) => {

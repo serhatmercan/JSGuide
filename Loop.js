@@ -1,38 +1,38 @@
 // Array Loop
-var aData = [];
+var data = [];
 
 // For Each
-aData.forEach((item) => console.log(item)); // Array
-aData.forEach((item) => console.log(item.id)); // Array Object
+data.forEach((item) => console.log(item)); // Array
+data.forEach((item) => console.log(item.id)); // Array Object
 
 // FOR
-for (var i = 0; i < aData.length; i++) {
-  aData[i];
+for (var i = 0; i < data.length; i++) {
+  data[i];
 }
 
 // FOR => IN - Object
-for (var i in aData) {
-  aData[i];
+for (var i in data) {
+  data[i];
 }
 
 // FOR => OF - Array
-for (var x of aData) {
+for (var x of data) {
   x;
 }
 // FOR => OF - String
-var sText = "Serhat";
-for (var x of sText) {
+var text = "Serhat";
+for (var x of text) {
   console.log(x); // S e r h a t
 }
 // FOR => OF - Array Object
-for (const item of aData) {
+for (const item of data) {
   console.log(item.key);
 }
 
 // WHILE
 var i = 0;
-while (aData[i]) {
-  console.log(aData[i]);
+while (data[i]) {
+  console.log(data[i]);
   i++;
 }
 
