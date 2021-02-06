@@ -1,0 +1,22 @@
+{
+  "name": "jsguide",
+  "version": "1.0.0",
+  "description": "JS Guide",
+  "main": "AJAX.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/serhatmercan/JSGuide.git"
+  },
+  "author": "Serhat Mercan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/serhatmercan/JSGuide/issues"
+  },
+  "homepage": "https://github.com/serhatmercan/JSGuide#readme",
+  "devDependencies": {
+    "eslint": "^7.19.0"
+  }
+}
