@@ -16,6 +16,9 @@
 // npm install --save-dev webpack-dev-server
 // npm run build:dev
 
+// Install Serve
+// npm install -g serve
+
 // Run PROD Server
 // npm run build:prod
 // serve
