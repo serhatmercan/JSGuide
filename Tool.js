@@ -34,6 +34,21 @@
 // Add Lodash
 // npm install --save lodash
 
+// Transpilation    => Babel
+// npm install --save-dev @babel/preset-env
+// "browserslist": "> 0.25%, not dead"      => Add Package.json
+// Add Config.js
+// {
+//   "presets": [
+//     [
+//       "@babel/preset-env",
+//       {
+//         "useBuiltIns": "entry"
+//       }
+//   ]
+//  ]
+//  }
+
 // => Command Palette
 
 // ESLint: Create ESLint Configuration

@@ -32,11 +32,30 @@ navigator.language; // "en-US"
 navigator.onLine; // true
 navigator.javaEnabled(); // false
 
+// NAVIGATOR Metot - Clipboard => Copy Text
+const button = document.querySelector("button");
+const textParagraph = document.querySelector("p");
+
+button.addEventListener("click", () => {
+	const text = textParagraph.textContent;
+	if (navigator.clipboard) {
+		navigator.clipboard
+			.writeText(text)
+			.then(result => {
+				console.log(result);
+			})
+			.catch(error => {
+				console.log(error);
+			});
+	}
+});
+
 // POPUP ALERT
 window.alert("XSMERCAN"); // Popup Alert
-window.alert('Hello\nHow are you?'); // Popup Alert w/ New Line
-var result = window.confirm("Are you Serhat"); // Yes pr No Question Alert
-var result = window.prompt("Please Enter Your Name:", "Serhat Mercan"); // Input Alert w/ Hint
+window.alert("Hello\nHow are you?"); // Popup Alert w/ New Line
+var result = window.confirm("Are you Serhat"); // Yes or No Question Alert
+result = window.prompt("Please Enter Your Name:", "Serhat Mercan"); // Input Alert w/ Hint
+console.log(result);
 
 // TIMING
 // Create a Timer
@@ -48,7 +67,7 @@ clearTimeout(time);
 
 // Create & Stop Current Time
 // HTML = <p id="demo"/>
-var time = setInterval(function fnTime() {
+time = setInterval(function fnTime() {
 	var date = new Date();
 	document.getElementById("demo").innerHTML = date.toLocaleTimeString();
 }, 1000);
