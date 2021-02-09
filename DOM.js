@@ -45,6 +45,11 @@ parent.replaceChild(paragraph, child); // Replace Place Children
 parent.remove(); // Remove Node From Page
 parent.removeChild(child); // Remove Node From Parent
 
+document.body.insertAdjacentElement('afterbegin', parent); // Add Item to Body
+document.body.removeChild(parent);                         // Remove Item From Body 
+this.parent.remove();                                      // Remove Item From Body
+this.parent = null;                                        // Clear Item
+
 // Collection
 var collection = document.getElementsByTagName("p");
 for (var i = 0; i < collection.length; i++) {
