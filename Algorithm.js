@@ -84,3 +84,4 @@ function sumUp(numbers) {
 const array = [1, 2, 5];
 
 console.log(sumUp(array)); // 8
+
