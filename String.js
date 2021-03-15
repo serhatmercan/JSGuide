@@ -36,7 +36,7 @@ console.log(text1.concat(" ", text2)); // Serhat Mercan
 const firstNumber = 10;
 const operator = "+";
 const secondNumber = 5;
-const total = `${firstNumber} ${operator} ${secondNumber}`;	// => 10 + 5
+total = `${firstNumber} ${operator} ${secondNumber}`;	// => 10 + 5
 
 var sName = "Serhat";
 sName += " Mercan";
@@ -47,7 +47,7 @@ var trim = "   Serhat Mercan   ";
 console.log(trim.trim()); // Serhat Mercan
 
 // Find Index of Character
-var char = "Serhat";
+char = "Serhat";
 console.log(text1.charAt(4)); // a
 
 // To Upper & Lower Case
@@ -56,12 +56,12 @@ console.log(caseValue.toUpperCase()); // SERHAT
 console.log(caseValue.toLowerCase()); // serhat
 
 // Split String
-var splitValue = "Serhat,Mercan,26",
-	splitData = splitValue.split(","); // aSplit = ["Serhat", "Mercan", "26"]
+var splitValue = "Serhat,Mercan,26";
+splitData = splitValue.split(","); // aSplit = ["Serhat", "Mercan", "26"]
 
 // Split String By Character Length
-let complexData = "123456789012345678901234567890",
-	splits = complexData.match(/.{1,10}/g); // splits[0] = ["1234567890"]
+let complexData = "123456789012345678901234567890";
+splits = complexData.match(/.{1,10}/g); // splits[0] = ["1234567890"]
 
 // Change Value Type to String
 var value = 5;
@@ -73,8 +73,8 @@ text.slice(0, -1); // Serhat
 
 // Convert String To Integer
 var number = "10";
-let value = parseInt(number, 10); // 10
+value = parseInt(number, 10); // 10
 
 // Add Number To String
-var number = "10";
+number = "10";
 number.padStart(10, 0); // "0000000010"

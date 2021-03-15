@@ -74,7 +74,7 @@ data.sort(); // => ["Elif", "Mercan", "Selim", "Serhat"]
 data.reverse(); // => ["Serhat", "Selim", "Mercan", "Elif"]
 
 // Sort Numeric Array Ascending
-const number = [1, 11, 7, 9];
+let number = [1, 11, 7, 9];
 number.sort((a, b) => a - b); // => [1, 7, 9, 11]
 
 // Sort Numeric Array Descending
@@ -99,11 +99,12 @@ getMaxValue(number); // => 11
 getMinValue(number); // => 1
 
 // MAP Method
-const number2 = [];
-number2 = number.map((x) => x * 2); // number2 = [2, 22, 14, 18]
+let number2 = [];
+number2 = number.map((x) => x * 2); 
+console.log(number2); // number2 = [2, 22, 14, 18]
 
 // MAP Method: Item & Index
-let data = ["X", "Y", "Z"];
+data = ["X", "Y", "Z"];
 data.map((item, index) => index + 1 + ". " + item); // ["1. X", "2. Y", "3. Z"]
 
 // MAP Method: Change Array Of Objects Attribute
@@ -156,6 +157,7 @@ dataArr.push(dataObj2);
 dataArr.push(dataObj3);
 
 const filteredData = dataArr.filter(data => data.name.includes("Ser")); // => dataObj1 & dataObj2
+console.log(filteredData);
 
 // REDUCE Method
 number.reduce(function (total, x) {
@@ -206,7 +208,7 @@ data.findIndex((x) => x.Index === 0); // -1 => Does Not Include
 data.findIndex((x) => x.Id === ID || x.Value === sValue); // -1 => Does Not Include
 
 // Include
-let data = [
+data = [
   "Hare",
   "Krishna",
   "Hare",
@@ -239,12 +241,12 @@ let numbers = [1, 4, 10, 9, 2];
 Math.max(...numbers); // => 10
 
 // Copy Array w/out Reference => SLICE
-let data = [1, 2, 3];
-let copyData = data.slice();  // => [1, 2, 3] 
-let copyItems = data.slice(0, 2); // => [1, 2]
+data = [1, 2, 3];
+copyData = data.slice();  // => [1, 2, 3] 
+copyItems = data.slice(0, 2); // => [1, 2]
 
 // Destructure Array 
-const numbers = [1, 2, 3, 4, 5];
+numbers = [1, 2, 3, 4, 5];
 
 function findMinMax(nums) {
   let minNum = nums[0];

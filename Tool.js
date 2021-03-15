@@ -52,3 +52,12 @@
 // => Command Palette
 
 // ESLint: Create ESLint Configuration
+
+// Add Express JS
+// npm install express --save
+
+// Express JS -> Extracting Data
+// npm install body-parser --save
+
+// Express JS -> EJS
+// npm install --save ejs
