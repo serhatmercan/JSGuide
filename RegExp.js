@@ -1,6 +1,9 @@
 // REGULAR EXPRESSION
 var text = "Serhat mercan serhat Mercan SERHAT MERCAN 1234567890";
 
+// All String [g] & Case Insensitive [i] 
+text.match(/serhat/gi); // ["Serhat", "serhat", "SERHAT"]
+
 // Case Insensitive Matching => i
 text.match(/MERCAN/i); // => ["mercan", index: 7, input: "Serhat mercan serhat Mercan SERHAT MERCAN", groups: undefined]
 

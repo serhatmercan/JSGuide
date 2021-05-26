@@ -55,6 +55,11 @@ var caseValue = "Serhat";
 console.log(caseValue.toUpperCase()); // SERHAT
 console.log(caseValue.toLowerCase()); // serhat
 
+// To Locale Upper & Lower Case
+var caseLocaleValue = "ğüiçşö";
+caseLocaleValue.toLocaleUpperCase(); // "ĞÜIÇŞÖ"
+caseLocaleValue.toLocaleLowerCase(); // "ğüiçşö"
+
 // Split String
 var splitValue = "Serhat,Mercan,26";
 splitData = splitValue.split(","); // aSplit = ["Serhat", "Mercan", "26"]
@@ -78,3 +83,13 @@ value = parseInt(number, 10); // 10
 // Add Number To String
 number = "10";
 number.padStart(10, 0); // "0000000010"
+
+// Repeat Method
+const repeatValue = "Repeat Value";
+repeatValue.repeat(5);	// "Repeat ValueRepeat ValueRepeat ValueRepeat ValueRepeat Value"
+
+// Locale Compare: ASCII => Returns -1 , 0 , 1
+var lc1 = "abc";
+var lc2 = "abd";
+
+lc1.localeCompare(lc2);	// -1

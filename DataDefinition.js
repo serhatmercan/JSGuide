@@ -20,3 +20,12 @@ cars; // ["Opel", "Volvo", "BMW", "Ford"]
 
 // VARIABLE TYPE
 typeof "Serhat"; // String
+
+// Run JS Command
+eval("10 + 20");	// 30
+
+function printData(){
+    console.log("Eval Command");
+}
+
+eval(printData()); // Eval Command

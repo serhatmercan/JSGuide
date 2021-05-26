@@ -87,3 +87,16 @@ function powerOf(x, n) {
 }
 
 console.log(powerOf(2, 3));
+
+// Default Parameter
+function defaultParameter(x, y = 5) {
+  console.log(x * y);
+}
+
+defaultParameter(5, 10);  // 50
+defaultParameter(5);      // 25
+
+// Automatic Function
+(function autoFunc(x, y) {
+  console.log(x * y);
+})(5, 10); // 50

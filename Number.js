@@ -20,7 +20,8 @@ let value = "10";
 let number = (0.2 + 0.4).toFixed(1);    // => 0.6
 
 // Convert Number To Binary
-let number = (7).toString(2);   // 111
+number = (7).toString(2);   
+console.log(number); // 111
 
 // Generate Random Number Between Two Integers
 function generateRandomNumberBetweenTwoIntegers(min, max) {
