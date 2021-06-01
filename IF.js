@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // IF(oEvent.getParameter("arguments").value) 
 var value = oEvent.getParameter("arguments").value ? oEvent.getParameter("arguments").value : "";
 
@@ -21,9 +22,9 @@ let isLoggedIn = true;
 const shoppingCart = isLoggedIn && ["Books"];	// => shoppingCart = ["Books"]
 
 const enteredValue = "";
-const userName = enteredValue && 'Serhat';	// => userName = ""
+const userNameAnd = enteredValue && "Serhat";	// => userName = ""
 
 // Double NOT
-const userName = 'Serhat';
-!!userName //	=> true
-!userName //	=> false
+const userNameNot = "Serhat";
+!!userName; //	=> true
+!userName; //	=> false

@@ -1,15 +1,18 @@
 // VAR 
 var text = "Serhat"; // Global - Changeable
+console.log(text); // "Serhat"
 
 // LET
-let text = "Serhat"; // Local - Changeable
+let data = "Serhat"; // Local - Changeable
+console.log(data); // "Serhat"
 
 for (let i = 0; i < 10; i++) {
 	console.log(i);
 }
 
 // CONST
-const text = "Serhat"; // Global - Just Changeable in Array
+const textConst = "Serhat"; // Global - Just Changeable in Array
+console.log(textConst); // "Serhat"
 
 const cars = ["Saab", "Volvo", "BMW"];
 

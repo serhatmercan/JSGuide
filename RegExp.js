@@ -1,14 +1,14 @@
 // REGULAR EXPRESSION
 var text = "Serhat mercan serhat Mercan SERHAT MERCAN 1234567890";
 
-// All String [g] & Case Insensitive [i] 
-text.match(/serhat/gi); // ["Serhat", "serhat", "SERHAT"]
+// Any Characters Match => []
+text.match(/[h]/g); // => ["h", "h"]
 
 // Case Insensitive Matching => i
 text.match(/MERCAN/i); // => ["mercan", index: 7, input: "Serhat mercan serhat Mercan SERHAT MERCAN", groups: undefined]
 
-// Any Characters Match => []
-text.match(/[h]/g); // => ["h", "h"]
+// All String [g] & Case Insensitive [i] 
+text.match(/serhat/gi); // ["Serhat", "serhat", "SERHAT"]
 
 // Any Digit Match => []
 text.match(/[0-5]/g); // => ["1", "2", "3", "4", "5", "0"]
@@ -33,3 +33,6 @@ text.match(/an*/g); // => ["a", "an", "a", "an"]
 
 // Contains Word Zero or One => .?
 text.match(/10?/g); // => ["1"]
+
+// Check String Contains Number
+/\d/.test(text); // True

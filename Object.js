@@ -1,3 +1,5 @@
+/* eslint-disable getter-return */
+/* eslint-disable no-unused-vars */
 
 // Inner Object
 var person = {
@@ -12,14 +14,14 @@ console.log(
 ); // Serhat Mercan age is 26
 
 // Loop
-var person = {
+var personSM = {
   fname: "Serhat",
   lname: "Mercan",
   age: 25,
 };
 var text = "";
-for (var i in person) {
-  text += person[i] + " "; // "John Doe 25 "
+for (var i in personSM) {
+  text += personSM[i] + " "; // "Serhat Mercan 25 "
 }
 
 // Call Method
@@ -104,75 +106,75 @@ getObject = () => {
 
 // Computed Properties
 var prop = "Name";
-var obj = {
+var objProp = {
   [prop]: "Serhat",
 };
-obj.Name; // Serhat
+objProp.Name; // Serhat
 
 // Assign
-let user = {
+let userAssign = {
   Name: "Serhat",
 };
 
-Object.assign(user, {
+Object.assign(userAssign, {
   Surname: "Mercan",
 }); // {Name: "Serhat", Surname: "Mercan"}
 
 // Assign: Copy Object w/out Reference
-let obj = {
+let objAssign = {
   "name": "Serhat",
   "notes": [],
 };
 
-let copyObj = Object.assign({}, obj);
+let copyObj = Object.assign({}, objAssign);
 
 // Copy Object
 let data = { age: 26 };
 let copyData = { ...data };
 
 // Copy Array in Object w/out Reference
-let obj = {
+let objCopy = {
   "name": "Serhat",
   "notes": [],
 };
 
-let copyObj = {
-  ...obj,
+let copyObjX = {
+  ...objCopy,
   "notes": obj.notes
 };
 
 // METHODS
-var person = {
+var personX = {
   firstName: "Serhat",
   lastName: "Mercan",
   language: "TR",
 };
 
 // Method: Changing a Property Value
-Object.defineProperty(person, "language", {
+Object.defineProperty(personX, "language", {
   value: "EN",
 }); // person => {firstName: "Serhat", lastName: "Mercan", language: "EN"}
 
 // Method: Adding a Property
-Object.defineProperty(person, "country", {
+Object.defineProperty(personX, "country", {
   value: "Turkey",
 }); // person => {firstName: "Serhat", lastName: "Mercan", language: "EN", country: "Turkey"}
 
 // Method: Adding Getters & Setters
-Object.defineProperty(person, "fullName", {
+Object.defineProperty(personX, "fullName", {
   get: function () {
     return this.firstName + " " + this.lastName;
   },
 }); // person.fullname => Serhat Mercan
 
 // Method: Get Values To Array
-Object.values(person); // ["Serhat", "Mercan", "TR"]
+Object.values(personX); // ["Serhat", "Mercan", "TR"]
 
 // Method: Returns all properties as an array
-Object.getOwnPropertyNames(person); // ["firstName", "lastName", "language", "country", "fullName"]
+Object.getOwnPropertyNames(personX); // ["firstName", "lastName", "language", "country", "fullName"]
 
 // Method: Accessing the prototype
-Object.getPrototypeOf(person); // {constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, ...}
+Object.getPrototypeOf(personX); // {constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, ...}
 
 // Method: Entries
 let prices = {

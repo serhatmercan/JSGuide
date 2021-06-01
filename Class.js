@@ -1,7 +1,5 @@
 // CLASS
 class Car {
-	id = "";	// Field	
-
 	constructor(carName) {
 		this._carName = carName;
 	}
@@ -25,7 +23,7 @@ class Model extends Car {
 		this._carmodel = carModel;
 	}
 	show() {
-		return this.present() + ', it is a ' + this._carmodel;
+		return this.present() + ", it is a " + this._carmodel;
 	}
 }
 

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // To Fixed Method
 var fixedValue = 9.656;
 console.log(fixedValue.toFixed(0)); // => 10

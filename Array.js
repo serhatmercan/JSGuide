@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // Define Array
 let data = [];
 
@@ -22,17 +23,6 @@ for (let i = 0; i < data.length; i++) {
 // Loop => FOR - EACH - ARROW FUNCTION
 data.forEach((item) => console.log(item.name));
 ["Serhat", "Mercan"].forEach((item) => console.log(item));
-
-// Loop => FOR - EACH
-data.forEach(function (data) {
-  console.log(data);
-});
-
-data.forEach(loop);
-
-function loop(data) {
-  console.log(data);
-}
 
 // Loop => FOR - EACH - Array Object
 data.forEach((item, index) => {
@@ -108,7 +98,7 @@ data = ["X", "Y", "Z"];
 data.map((item, index) => index + 1 + ". " + item); // ["1. X", "2. Y", "3. Z"]
 
 // MAP Method: Change Array Of Objects Attribute
-let arrayObj = [
+var arrayObj = [
   {
     Key: "1",
     Value: "10",

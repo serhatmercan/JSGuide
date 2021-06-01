@@ -45,7 +45,7 @@ parent.replaceChild(paragraph, child); // Replace Place Children
 parent.remove(); // Remove Node From Page
 parent.removeChild(child); // Remove Node From Parent
 
-document.body.insertAdjacentElement('afterbegin', parent); // Add Item to Body
+document.body.insertAdjacentElement("afterbegin", parent); // Add Item to Body
 document.body.removeChild(parent);                         // Remove Item From Body 
 this.parent.remove();                                      // Remove Item From Body
 this.parent = null;                                        // Clear Item
@@ -58,15 +58,16 @@ for (var i = 0; i < collection.length; i++) {
 
 // Nodes List
 var nodeList = document.querySelectorAll("p");
-for (var i = 0; i < nodeList.length; i++) {
-  nodeList[i].style.color = "red";
+for (var x = 0; x < nodeList.length; x++) {
+  nodeList[x].style.color = "red";
 }
 
 // Create Element in HTML
-<ul id="list"></ul>;
+// <ul id="list"></ul>;
 
 const data = [];
 
+// eslint-disable-next-line no-unused-vars
 const createElement = (data) => {
   const newElement = document.createElement("li");
 

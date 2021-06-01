@@ -10,6 +10,7 @@ Math.round(roundDown); // 2
 // POW
 var pow = Math.pow(5, 2);
 console.log("5 ^ 2 = " + pow); // => 5 ^ 2 = 25
+console.log(5 ** 2); // => 5 ^ 2 = 25
 
 // SQUARE ROOT => SQRT
 Math.sqrt(64); // 8
@@ -31,4 +32,8 @@ Math.max(0, 150, 30, 20, -8, -200); // 150
 
 // RANDOM NUMBER
 Math.random(); // Between 0 And 1
-Math.floor(Math.random() * 10) + 1 // Between 1 And 10
+Math.floor(Math.random() * 10) + 1; // Between 1 And 10
+
+// IS INTEGER
+Number.isInteger(10); // True
+Number.isInteger(10.5); // False

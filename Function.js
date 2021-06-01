@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // The Arguments Object
 function sumAll() {
   let sum = 0;
@@ -38,7 +39,7 @@ function sayName(value) {
 sayName.bind(user)("Hello"); // Hello Serhat
 
 // New Syntax: The Function w/ out Parameters
-let hello = new Function('console.log("Hello")');
+let hello = new Function("console.log(\"Hello\")");
 
 hello();
 
@@ -48,7 +49,7 @@ sum(1, 2); // 3
 
 // New Syntax: Closure
 let closure = () => {
-  let hello = new Function('console.log("Hello")');
+  let hello = new Function("console.log(\"Hello\")");
   return hello;
 };
 

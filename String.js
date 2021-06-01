@@ -1,13 +1,13 @@
 // One or Double Quotes
 var nameOdd = "I am called 'Serhat'",
-	nameEven = 'I am called "Serhat"';
+	nameEven = "I am called \"Serhat\"";
 
 console.log(nameOdd); 	// I am called 'Serhat'
 console.log(nameEven); // I am called "Serhat"
 
 // Escape Character
 console.log("We are the so-called \"Vikings\" from the north."); // We are the so-called "Vikings" from the north.
-console.log("It\'s alright."); // It's alright.
+console.log("It\\'s alright."); // It's alright.
 console.log("The character \\ is called backslash."); // The character \ is called backslash.		
 
 // Finding a String in a String 

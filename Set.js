@@ -2,7 +2,7 @@ let values = ["Hare", "Krishna", "Hare", "Krishna", "Krishna", "Krishna", "Hare"
 
 fnUnique = (data) => {
 	return Array.from(new Set(data));
-}
+};
 
 console.log(fnUnique(values)); // ["Hare", "Krishna", ":-O"]
 

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // jQuery
 // Import HTML Page
 /*
@@ -11,10 +12,11 @@
 </body>
 */
 // Finding HTML Element(s);
-var demo = $("#demo"),					// by ID
-	paragraphs = $("p"),				// by Tag Name
-	oClass = $(".intro"),				// by Class Name
-	oClassParagraphs = $("p.intro");	// by CSS Selectors
+var demo = $("#demo");					// by ID
+var	paragraphs = $("p");				// by Tag Name
+var	oClass = $(".intro");				// by Class Name
+
+var	oClassParagraphs = $("p.intro");	// by CSS Selectors
 
 // Text Content
 demo.text();			// GET 		

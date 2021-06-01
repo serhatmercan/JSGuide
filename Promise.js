@@ -1,5 +1,7 @@
-const button = document.querySelector('button');
-const output = document.querySelector('p');
+/* eslint-disable quotes */
+/* eslint-disable no-unused-vars */
+const button = document.querySelector("button");
+const output = document.querySelector("p");
 
 const getPosition = opts => {
     const promise = new Promise((resolve, reject) => {
@@ -20,7 +22,7 @@ const getPosition = opts => {
 const setTimer = duration => {
     const promise = new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve('Done!');
+            resolve("Done!");
         }, duration);
     });
 
