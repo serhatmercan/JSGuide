@@ -36,3 +36,35 @@ text.match(/10?/g); // => ["1"]
 
 // Check String Contains Number
 /\d/.test(text); // True
+
+// Get Left / Right Context
+var regExp = new RegExp("Mercan", "g");
+regExp.test(text); // True
+RegExp.leftContext; // "Serhat mercan serhat "
+RegExp.rightContext; // " SERHAT MERCAN 1234567890"
+
+// Replace Text
+// Single
+regExp = /Serhat/gi;
+text.replace(regExp, "Selim");  // "Selim mercan Selim Mercan Selim MERCAN 1234567890"
+// Multi
+regExp = /(Serhat|Selim)/gi; 
+text.replace(regExp, "Elif"); // "Elif mercan Elif Mercan Elif MERCAN 1234567890"
+
+// Divide Text To Array
+regExp = / /gi;
+text.split(regExp); // ["Serhat", "mercan", "serhat", "Mercan", "SERHAT", "MERCAN", "1234567890"] 
+
+// Check Beginning Value
+regExp = /^Serhat/i;
+regExp.test(text); // True
+
+regExp = /^Mercan/i;
+regExp.test(text); // False
+
+// Check Ending Value
+regExp = /Mercan$/i;
+regExp.test(text); // False
+
+regExp = /1234567890$/i;
+regExp.test(text); // True
