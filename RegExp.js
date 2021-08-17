@@ -68,3 +68,11 @@ regExp.test(text); // False
 
 regExp = /1234567890$/i;
 regExp.test(text); // True
+
+// Except Value
+regExp = /[^Serhat ]/gi;
+text.match(regExp); // ["m", "c", "n", "M", "c", "n", "M", "C", "N", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+
+// Except Value Range
+regExp = /[^a-zA-Z ]/g;
+text.match(regExp); // ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
