@@ -10,4 +10,4 @@ case 1:
 default:
 	console.log("Value is " + value);
 	break;
-}
+}	
