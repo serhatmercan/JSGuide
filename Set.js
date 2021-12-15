@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 let values = ["Hare", "Krishna", "Hare", "Krishna", "Krishna", "Krishna", "Hare", "Hare", ":-O"];
 
 fnUnique = (data) => {
@@ -21,3 +22,6 @@ if (data.has(26)) {
 for (const item of data.entries()) {
 	console.log(item[0]);
 }
+
+// Map & Set
+let aColumnIDs = [...new Set(aData.map(item => item.ID))];

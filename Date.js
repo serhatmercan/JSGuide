@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // Date
 var birthDay = new Date("12/26/1994"); //=> Mon Dec 26 1994 00:00:00 GMT+0200 (GMT+03:00) 	=> MM/DD/YYYY
 
@@ -19,3 +20,9 @@ console.log(todayEN);	// "6/28/2020"
 // Convert Date
 var dateUTC = new Date(Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()));
 console.log(dateUTC); // Tue Jun 01 2021 03:00:00 GMT+0300 (GMT+03:00)
+
+// Convert Locale Date String
+item.Date.toLocaleDateString("tr-TR");
+
+// Find Min Date From Array
+const minDate = new Date(Math.min(...aData.map(e => new Date(e.Tarih))));

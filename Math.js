@@ -34,6 +34,9 @@ Math.max(0, 150, 30, 20, -8, -200); // 150
 Math.random(); // Between 0 And 1
 Math.floor(Math.random() * 10) + 1; // Between 1 And 10
 
+// DECIMAL NUMBER
+Math.trunc(9.123);	// => 9
+
 // IS INTEGER
 Number.isInteger(10); // True
 Number.isInteger(10.5); // False

@@ -1,3 +1,5 @@
+/* eslint-disable no-empty */
+/* eslint-disable no-prototype-builtins */
 /* eslint-disable getter-return */
 /* eslint-disable no-unused-vars */
 
@@ -193,3 +195,6 @@ aDoublePrices => {
   Meat: 8
 }
 */
+
+// Check Object Contains Property
+if(obj.hasOwnProperty("ID")){}

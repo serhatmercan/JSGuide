@@ -75,6 +75,7 @@ number = [1, 5, 99, 3, 4, 7];
 number.sort((a, b) => a - b); // [1, 3, 4, 5, 7, 99]
 number.sort((a, b) => b - a); // [99, 7, 5, 4, 3, 1]
 number.reduce((sum, current) => sum + current); // 119
+number.reduce((sum, current) => sum + current.ID); // Array Object
 
 // MAX & MIN Number in Array
 function getMaxValue(data) {
@@ -90,7 +91,7 @@ getMinValue(number); // => 1
 
 // MAP Method
 let number2 = [];
-number2 = number.map((x) => x * 2); 
+number2 = number.map((x) => x * 2);
 console.log(number2); // number2 = [2, 22, 14, 18]
 
 // MAP Method: Item & Index
@@ -165,10 +166,12 @@ number.reduce(sum); // => 1 + 11 + 7 + 9 = 28
 // EVERY Method
 number.every((x) => x > 0); // True
 number.every((x) => x > 10); // False
+number.every((x) => x.ID > 10);
 
 // SOME Method
 number.some((x) => x > 10); // True
 number.some((x) => x > 15); // False
+number.some((x) => x.ID > 10);
 
 // Get Finding Item Index in Array
 number.indexOf(7); // => 2
@@ -256,3 +259,48 @@ function findMinMax(nums) {
 
 const [min, max] = findMinMax(numbers);
 console.log(min, max); // => 1, 5
+
+// Check Duplicate Object In Array
+this._checkDuplicateObjectInArray(data);
+
+function _checkDuplicateObjectInArray() {
+  let aData = [];
+
+  aData = aTable.map(item => {
+    return {
+      Key: item.Key,
+      Value: item.Value
+    };
+  });
+
+
+  let aKeyData = aData.map(item => {
+    return {
+      Key: item.Key,
+      Value: item.Value
+    };
+  }).filter((v, i, a) => a.findIndex(t => (t.Key === v.Key && t.Value === v.Value)) === i);
+
+  return aData.length !== aKeyData.length ? true : false;
+}
+
+// Filtered Key Value w/ Map & Filter & Find Index
+let aTableCriterias = aData.map(item => {
+  return {
+    ID: item.ID,
+    Value: item.Value
+  };
+}).filter((v, i, a) => a.findIndex(t => (t.ID === v.ID)) === i);
+
+// All Data Changing
+let aDataX = aData.to_Items.results.map(obj => ({...obj,
+  Item: obj.Item
+}));
+
+// Generate Array w/ Unique Key
+const oGroupedData = aData.reduce((x, item) => {
+  x[item.Key] = [...x[item.Key] || [], item];
+  return x;
+}, {});
+
+const aKeys = Object.getOwnPropertyNames(oGroupedData);
