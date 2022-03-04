@@ -19,7 +19,7 @@ data.forEach(item => console.log(item.name));
 // Return Array Object
 getObject = () => {
 	return {
-		id: "",
-		name: ""
+		ID: "",
+		Name: ""
 	};
 };

@@ -75,7 +75,7 @@ number = [1, 5, 99, 3, 4, 7];
 number.sort((a, b) => a - b); // [1, 3, 4, 5, 7, 99]
 number.sort((a, b) => b - a); // [99, 7, 5, 4, 3, 1]
 number.reduce((sum, current) => sum + current); // 119
-number.reduce((sum, current) => sum + current.ID); // Array Object
+number.reduce((sum, current) => sum + current.ID, 0); // Array Object
 
 // MAX & MIN Number in Array
 function getMaxValue(data) {
@@ -120,6 +120,7 @@ arrayObj = arrayObj.map((item) => {
 // MAP Method: Delete Array Of Objects Attribute
 arrayObj = arrayObj.map((item) => {
   delete item.Value;
+  return item;
 });
 
 // MAP Method: Split & Upper Case & Slice & Join
@@ -304,3 +305,6 @@ const oGroupedData = aData.reduce((x, item) => {
 }, {});
 
 const aKeys = Object.getOwnPropertyNames(oGroupedData);
+
+// Show Array With Table
+console.table(aData);
