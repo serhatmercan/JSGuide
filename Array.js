@@ -1,310 +1,124 @@
 /* eslint-disable no-unused-vars */
-// Define Array
-let data = [];
+// Array
+let aData = [];
+let aNumbers = [1, 5, 99, 3, 4, 7];
 
-// Add Data
-data[0] = "Serhat";
-data[1] = "Mercan";
+// Array: Add Item
+aData.push("Serhat");  // => aData = ["Serhat"]
 
-// Length
-data.length; // => 2
+// Array: Add Item At The Beginning of Array
+aData.unshift("FB"); // => FB Serhat
 
-// Add a New Element
-data.push("Selim"); // => data = ["Serhat","Mercan","Selim"]
+// Array: Add Items w/ Index
+aData.splice(1, 0, "Elif", "Selim"); // => aData = ["FB", Serhat", "Elif", "Selim"]
 
-// Remove The Last Element
-data.pop(); // => data = ["Serhat","Mercan"]
+// Array: Declaration
+aData[4] = "Mercan"; // => aData = ["FB", Serhat", "Elif", "Selim", "Mercan"]
 
-// Loop => FOR
-for (let i = 0; i < data.length; i++) {
-  console.log(data[i]);
+// Array: Divide
+aData.slice(0, 2); // => aData = ["FB", Serhat"]
+
+// Array: Convert To String
+aData.toString(); // => FB,Serhat,Elif,Selim,Mercan
+
+// Array: Copy Array w/out Reference
+[...aData]; // => ["FB", Serhat", "Elif", "Selim", "Mercan"]
+
+// Array: Every
+aNumbers.every(iNumber => iNumber > 0);  // True
+aNumbers.every(iNumber => iNumber > 10); // False
+
+// Array: Filter
+aNumbers.filter(iNumber => iNumber > 10); // => 99
+
+// Array: Find
+aNumbers.find(iNumber => iNumber > 10); // 11
+
+// Array: Find Index
+aNumbers.findIndex(iNumber => iNumber === 99); // 2
+aNumbers.findIndex(iNumber => iNumber === 0);  // -1 => Does Not Include
+
+// Array: Find Item Index
+aNumbers.indexOf(7); // => 5
+aNumbers.indexOf(2); // => -1 : Does Not Include
+
+// Array: Find Last Item Index
+aNumbers.lastIndexOf(7); // => 5
+aNumbers.lastIndexOf(2); // => -1 : Does Not Include
+
+// Array: Iteration - For
+for (let i = 0; i < aData.length; i++) {
+  console.log(aData[i]);
 }
 
-// Loop => FOR - EACH - ARROW FUNCTION
-data.forEach((item) => console.log(item.name));
-["Serhat", "Mercan"].forEach((item) => console.log(item));
+// Array: Iteration - For Each
+aData.forEach((oItem) => console.log(oItem));
 
-// Loop => FOR - EACH - Array Object
-data.forEach((item, index) => {
-  console.log("Index is " + index + ", Item is " + item);
+aData.forEach((oItem, iIndex) => {
+  console.log("Index is " + iIndex + ", Item is " + oItem);
 });
 
-// To String
-data.toString(); // => Serhat,Mercan
+// Array: Join
+aData.join(" * "); // => FB * Serhat * Elif * Selim * Mercan
 
-// Join
-data.join(" * "); // => Serhat * Mercan
+// Array: Map
+aNumbers.map((iNumber) => iNumber * 2); // [2, 10, 198, 6, 8, 14];
 
-// Remove The First Element
-data.shift(); // => Mercan
+// Array: Map w/ Index
+aData.map((oItem, iIndex) => iIndex + 1 + ". " + oItem); // ["1. FB", "2. Serhat", "3. Elif", "4. Selim", "5. Mercan"]
 
-// Add a New Element At The Beginning of Array
-data.unshift("Serhat"); // => Serhat Mercan
+// Array: Max Value
+Math.max.apply(null, aNumbers); // 99
 
-// Delete Data
-delete data[1]; // => data = ["Serhat", empty]
+// Array: Min Value
+Math.min.apply(null, aNumbers); // 1
 
-// Add New Items
-data.splice(1, 0, "Selim", "Elif"); // => data = ["Serhat", "Selim", "Elif", "Mercan"]
+// Array: Merge Two Arrays
+aData.concat(["X","Y"]); // => ["FB", Serhat", "Elif", "Selim", "Mercan", "X", "Y"]
+[...aData, ...aNumbers]; // => ["FB", Serhat", "Elif", "Selim", "Mercan", 1, 5, 99, 3, 4, 7]
 
-// Remove Items
-data.splice(0, 1); // 0 => Begin Index , 1 => Items Count ; => data = ["Selim", "Elif", "Mercan"]
+// Array: Reduce - Calculate Total Value
+aNumbers.reduce((iSum, oCurrent) => iSum + oCurrent, 0); // 119
 
-// Removed Items to New Array
-removedData = data.splice(1, 2);  // removedData = ["Elif", "Mercan"]
+// Array: Remove First Item
+aData.shift(); // => FB
 
-// Merge Two Arrays
-const data2 = ["Selim", "Elif"];
-data = data.concat(data2); // => data = ["Serhat", "Mercan", "Selim", "Elif"]
+// Array: Remove Item w/ Index
+delete aData[0]; // => aData = ["Elif","Selim","Mercan"]
 
-// Sort Alphabetically Ascending
-data.sort(); // => ["Elif", "Mercan", "Selim", "Serhat"]
+// Array: Remove Items w/ Indexes (Begin Index, Items Count)
+aData.splice(2, 1); // => ["Mercan"]  => aData = ["Selim", "Elif"]
 
-// Sort Alphabetically Descending
-data.reverse(); // => ["Serhat", "Selim", "Mercan", "Elif"]
+// Array: Remove Last Item
+aData.pop(); // => Elif
 
-// Sort Numeric Array Ascending
-let number = [1, 11, 7, 9];
-number.sort((a, b) => a - b); // => [1, 7, 9, 11]
+// Array: Show Array w/ Table Format
+console.table(aData);
 
-// Sort Numeric Array Descending
-number.sort((a, b) => b - a); // => [11, 9, 7, 1]
+// Array: Some
+aNumbers.some((iNumber) => iNumber > 0);   // True
+aNumbers.some((iNumber) => iNumber > 100); // False
 
-// Array Sort
-number = [1, 5, 99, 3, 4, 7];
-number.sort((a, b) => a - b); // [1, 3, 4, 5, 7, 99]
-number.sort((a, b) => b - a); // [99, 7, 5, 4, 3, 1]
-number.reduce((sum, current) => sum + current); // 119
-number.reduce((sum, current) => sum + current.ID, 0); // Array Object
+// Array: Sort - Alphabetically - Ascending
+aData.sort();
 
-// MAX & MIN Number in Array
-function getMaxValue(data) {
-  return Math.max.apply(null, data);
-}
+// Array: Sort - Alphabetically - Descending
+aData.reverse();
 
-function getMinValue(data) {
-  return Math.min.apply(null, data);
-}
+// Array: Sort - Numerically - Ascending
+aNumbers.sort((a, b) => a - b); // => [1, 3, 4, 5, 7, 99]
 
-getMaxValue(number); // => 11
-getMinValue(number); // => 1
+// Array: Sort - Numerically - Descending
+aNumbers.sort((a, b) => b - a); // => [99, 11, 7, 5, 4, 3, 1]
 
-// MAP Method
-let number2 = [];
-number2 = number.map((x) => x * 2);
-console.log(number2); // number2 = [2, 22, 14, 18]
-
-// MAP Method: Item & Index
-data = ["X", "Y", "Z"];
-data.map((item, index) => index + 1 + ". " + item); // ["1. X", "2. Y", "3. Z"]
-
-// MAP Method: Change Array Of Objects Attribute
-var arrayObj = [
-  {
-    Key: "1",
-    Value: "10",
-  },
-  {
-    Key: "2",
-    Value: "100",
-  },
-];
-
-arrayObj = arrayObj.map((item) => {
-  return {
-    ID: item.Key,
-    Value: item.Value,
-  };
-});
-
-// MAP Method: Delete Array Of Objects Attribute
-arrayObj = arrayObj.map((item) => {
-  delete item.Value;
-  return item;
-});
-
-// MAP Method: Split & Upper Case & Slice & Join
-camelize = (data) => {
-  return data
+// Array: Split & Map & Upper Case & Slice & Join
+camelize = (aData) => {
+  return aData
     .split("-")
-    .map((word, index) =>
-      index == 0 ? word : word[0].toUpperCase() + word.slice(1)
+    .map((sWord, iIndex) =>
+      iIndex == 0 ? sWord : sWord[0].toUpperCase() + sWord.slice(1)
     )
     .join("");
 };
-console.log(camelize("list-style-image")); // "listStyleImage"
 
-// FILTER Method
-number.filter(x => x > 10); // Return the Array => 11
-
-// FILTER w/ Array Object
-const dataObj1 = { name: "Serhat" };
-const dataObj2 = { name: "Sercan" };
-const dataObj3 = { name: "Selim" };
-
-const dataArr = [];
-
-dataArr.push(dataObj1);
-dataArr.push(dataObj2);
-dataArr.push(dataObj3);
-
-const filteredData = dataArr.filter(data => data.name.includes("Ser")); // => dataObj1 & dataObj2
-console.log(filteredData);
-
-// REDUCE Method
-number.reduce(function (total, x) {
-  return total + x; // => 1 + 11 + 7 + 9 = 28
-});
-
-number.reduce((total, x) => total + x, 0); // => 1 + 11 + 7 + 9 = 28
-
-function sum(total, value) {
-  return total + value;
-}
-
-number.reduce(sum); // => 1 + 11 + 7 + 9 = 28
-
-// EVERY Method
-number.every((x) => x > 0); // True
-number.every((x) => x > 10); // False
-number.every((x) => x.ID > 10);
-
-// SOME Method
-number.some((x) => x > 10); // True
-number.some((x) => x > 15); // False
-number.some((x) => x.ID > 10);
-
-// Get Finding Item Index in Array
-number.indexOf(7); // => 2
-number.indexOf(2); // => -1 : Does Not Include
-
-// Get Finding Last Item Index in Array
-number[4] = 11;
-number.lastIndexOf(11); // => 4
-
-// Find
-number.find((x) => x > 10); // 11
-
-function findData(x) {
-  return x > 1;
-}
-
-number.find(findData); // => 11
-
-function findObject(x) {
-  return x.Id === 2;
-}
-
-// Find Index
-data.findIndex((x) => x.Index === 0); // -1 => Does Not Include
-
-// Find Index w/ Parameters
-data.findIndex((x) => x.Id === ID || x.Value === sValue); // -1 => Does Not Include
-
-// Include
-data = [
-  "Hare",
-  "Krishna",
-  "Hare",
-  "Krishna",
-  "Krishna",
-  "Krishna",
-  "Hare",
-  "Hare",
-  ":-O",
-];
-
-let result = [];
-
-for (let item of data) {
-  if (!result.includes(item)) {
-    result.push(item);
-  }
-}
-
-// Spread Operator => [...]
-const mehmetsFamily = ["Mehmet", "Fatma", "Serhat"];
-const sercansFamily = ["Sercan", "Yeliz", "Elif", "Selim"];
-
-[...mehmetsFamily, "X", ...sercansFamily]; // ["Mehmet", "Fatma", "Serhat", "X", "Sercan", "Yeliz", "Elif", "Selim"]
-
-// Copy Array w/out Reference => [...]
-let copyData = [...data];
-
-let numbers = [1, 4, 10, 9, 2];
-Math.max(...numbers); // => 10
-
-// Copy Array w/out Reference => SLICE
-data = [1, 2, 3];
-copyData = data.slice();  // => [1, 2, 3] 
-copyItems = data.slice(0, 2); // => [1, 2]
-
-// Destructure Array 
-numbers = [1, 2, 3, 4, 5];
-
-function findMinMax(nums) {
-  let minNum = nums[0];
-  let maxNum = nums[0];
-
-  for (const num of nums) {
-    if (num < minNum) {
-      minNum = num;
-    }
-    if (maxNum < num) {
-      maxNum = num;
-    }
-  }
-
-  return [minNum, maxNum];
-}
-
-const [min, max] = findMinMax(numbers);
-console.log(min, max); // => 1, 5
-
-// Check Duplicate Object In Array
-this._checkDuplicateObjectInArray(data);
-
-function _checkDuplicateObjectInArray() {
-  let aData = [];
-
-  aData = aTable.map(item => {
-    return {
-      Key: item.Key,
-      Value: item.Value
-    };
-  });
-
-
-  let aKeyData = aData.map(item => {
-    return {
-      Key: item.Key,
-      Value: item.Value
-    };
-  }).filter((v, i, a) => a.findIndex(t => (t.Key === v.Key && t.Value === v.Value)) === i);
-
-  return aData.length !== aKeyData.length ? true : false;
-}
-
-// Filtered Key Value w/ Map & Filter & Find Index
-let aTableCriterias = aData.map(item => {
-  return {
-    ID: item.ID,
-    Value: item.Value
-  };
-}).filter((v, i, a) => a.findIndex(t => (t.ID === v.ID)) === i);
-
-// All Data Changing
-let aDataX = aData.to_Items.results.map(obj => ({...obj,
-  Item: obj.Item
-}));
-
-// Generate Array w/ Unique Key
-const oGroupedData = aData.reduce((x, item) => {
-  x[item.Key] = [...x[item.Key] || [], item];
-  return x;
-}, {});
-
-const aKeys = Object.getOwnPropertyNames(oGroupedData);
-
-// Show Array With Table
-console.table(aData);
+camelize("list-style-image"); // "listStyleImage"

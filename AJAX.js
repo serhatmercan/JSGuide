@@ -1,7 +1,8 @@
 // Create an XMLHttpRequest Object
 // eslint-disable-next-line no-unused-vars
 function fnAJAX() {
-  var xhttp = new XMLHttpRequest();
+  const xhttp = new XMLHttpRequest();
+
   xhttp.onreadystatechange = function () {
     // Gets Everytime Fired When the XHR Request State Changes
     if (this.readyState == 4 && this.status == 200) {
@@ -34,27 +35,25 @@ function fnAJAX() {
 }
 */
 function decodeXML(that) {
-  var XMLDoc = that.responseXML,
-      paragraph = XMLDoc.getElementsByTagName("p");
-
-  data = paragraph[0].getElementsByTagName("DATA_COLUMN")[0].childNodes[0].nodeValue; // FOR
+  oData = that.responseXML.getElementsByTagName("p")[0].getElementsByTagName("DATA_COLUMN")[0].childNodes[0].nodeValue; // FOR
 }
 
 // AJAX: Fetch
-function getWeather(woeid) {
+function getWeather(WOEID) {
   fetch(
-    `https://crossorigin.me/https://www.metaweather.com/api/location/${woeid}/`
+    `https://crossorigin.me/https://www.metaweather.com/api/location/${WOEID}/`
   )
-    .then((result) => {
-      return result.json();
+    .then((oResult) => {
+      return oResult.json();
     })
-    .then((data) => {
-      const today = data.consolidated_weather[0];
+    .then((oData) => {
+      const oToday = oData.consolidated_weather[0];
+
       console.log(
-        `Temperatures today in ${data.title} stay between ${today.min_temp} and ${today.max_temp}.`
+        `Temperatures today in ${oData.title} stay between ${oToday.min_temp} and ${oToday.max_temp}.`
       );
     })
-    .catch((error) => console.log(error));
+    .catch((oError) => console.log(oError));
 }
 
 getWeather(2487956);
