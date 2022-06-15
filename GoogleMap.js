@@ -13,12 +13,11 @@ if (!google) {
 // Get Current Address
 navigator.geolocation.getCurrentPosition(
     async success => {
-        const coordinates = {
+        const oCoordinate = {
             lat: success.coords.latitude + Math.random() * 50,
             lng: success.coords.longitude + Math.random() * 50
         };
-        const address = await getAddressFromCoords(coordinates);
-        console.log(address);
+        const oAddress = await getAddressFromCoords(oCoordinate);
     },
     error => {
         console.log(error);
@@ -26,65 +25,60 @@ navigator.geolocation.getCurrentPosition(
 );
 
 // Find Current Address
-const address = event.target.querySelector("input").value;
+const sAddress = oEvent.target.querySelector("input").value;
 
-if (!address || address.trim().length === 0) {
-    alert("Invalid address entered - please try again!");
+if (!sAddress || sAddress.trim().length === 0) {
+    alert("Invalid Address Entered - Please Try Again!");
 }
 
 try {
-    const coordinates = getCoordsFromAddress(address);
-    console.log(coordinates);
-} catch (err) {
-    alert(err.message);
+    const oCoordinate = getCoordsFromAddress(sAddress);
+} catch (oError) {
+    alert(oError.message);
 }
 
 // Show Position
-const map = new google.maps.Map(document.getElementById("map"), {
-    center: coordinates,
+const oMap = new google.maps.Map(document.getElementById("map"), {
+    center: oCoordinate,
     zoom: 15
 });
 
 new google.maps.Marker({
-    position: coordinates,
+    position: oCoordinate,
     map: map
 });
 
 // Get Address From Coordinates
-export async function getAddressFromCoords(coords) {
-    const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${coords.lat},${coords.lng}&key=${GOOGLE_API_KEY}`);
+export async function getAddressFromCoords(oCoordinate) {
+    const oResponse = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${oCoordinate.lat},${oCoordinate.lng}&key=${GOOGLE_API_KEY}`);
 
-    if (!response.ok) {
-        throw new Error("Failed to fetch address. Please try again!");
+    if (!oResponse.ok) {
+        throw new Error("Failed to Fetch Address. Please Try Again!");
     }
 
-    const data = await response.json();
+    const oData = await oResponse.json();
 
-    if (data.error_message) {
-        throw new Error(data.error_message);
+    if (oData.error_message) {
+        throw new Error(oData.error_message);
     }
 
-    const address = data.results[0].formatted_address;
-
-    return address;
+    return oData.results[0].formatted_address;
 }
 
 // Get Coordinates From Address
-export async function getCoordsFromAddress(address) {
-    const urlAddress = encodeURI(address);
-    const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${urlAddress}&key=${GOOGLE_API_KEY}`);
+export async function getCoordsFromAddress(sAddress) {
+    const sURLAddress = encodeURI(sAddress);
+    const oResponse = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${sURLAddress}&key=${GOOGLE_API_KEY}`);
 
-    if (!response.ok) {
+    if (!oResponse.ok) {
         throw new Error("Failed to fetch coordinates. Please try again!");
     }
 
-    const data = await response.json();
+    const oData = await oResponse.json();
 
-    if (data.error_message) {
-        throw new Error(data.error_message);
+    if (oData.error_message) {
+        throw new Error(oData.error_message);
     }
 
-    const coordinates = data.results[0].geometry.location;
-
-    return coordinates;
+    return oData.results[0].geometry.location;
 }

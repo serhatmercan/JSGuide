@@ -1,18 +1,18 @@
 // Reach Button
-const button = document.querySelector("button");
+const oButton = document.querySelector("button");
 
 // Function
-const onClickButton = event => {
-    console.log(event);
+const onClickButton = oEvent => {
+    console.log(oEvent);
 };
 
 // Add Event to Button
-button.addEventListener("click", onClickButton);
+oButton.addEventListener("click", onClickButton);
 
 // Remove Event From Button
-button.removeEventListener("click", onClickButton);
+oButton.removeEventListener("click", onClickButton);
 
 // Add Anonymous Function to Button
-button.addEventListener("click", event => {
-    console.log(event);
+oButton.addEventListener("click", oEvent => {
+    console.log(oEvent);
 });

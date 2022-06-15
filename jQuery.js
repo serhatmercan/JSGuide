@@ -6,33 +6,33 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
-	<div id="01">
-		<p id="demo" class="intro">Demo Paragraph</p>
+	<div id="Div">
+		<p id="Demo" class="Intro">Demo Paragraph</p>
 	</div>
 </body>
 */
 // Finding HTML Element(s);
-var demo = $("#demo");					// by ID
-var	paragraphs = $("p");				// by Tag Name
-var	oClass = $(".intro");				// by Class Name
-
-var	oClassParagraphs = $("p.intro");	// by CSS Selectors
+const oDemo = $("#Demo");				// by ID
+const aParagraphs = $("p");				// by Tag Name
+const oClass = $(".intro");				// by Class Name
+const oClassParagraphs = $("p.intro");	// by CSS Selectors
 
 // Text Content
-demo.text();			// GET 		
-demo.text("Serhat");	// SET 
+oDemo.text();			// GET 		
+oDemo.text("Serhat");	// SET 
 
 // HTML Content
-var oDiv = $("#01");
-oDiv.html();						// GET => <p class="intro" id="demo">Demo Paragraph</p>
+const oDiv = $("#Div");
+
+oDiv.html();						// GET => <p class="Intro" id="Demo">Demo Paragraph</p>
 oDiv.html("<p>Hello World!</p>");	// SET => <p>Hello World</p>
 
 // CSS: HTML Elements
-demo.hide();					// Hiding 
-demo.show();					// Showing
-demo.css("font-size","35px");	// Styling
+oDemo.hide();					// Hiding 
+oDemo.show();					// Showing
+oDemo.css("font-size","35px");	// Styling
 
 // DOM
-demo.remove();						// Removing Elements
-demo.parent();						// Get Parent Element
-demo.parent().prop("nodeName");	// Get Parent Element Name
+oDemo.remove();						// Removing Elements
+oDemo.parent();						// Get Parent Element
+oDemo.parent().prop("nodeName");	// Get Parent Element Name

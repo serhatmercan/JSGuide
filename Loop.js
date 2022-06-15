@@ -1,51 +1,54 @@
 // Array Loop
-var data = [];
+const aData = [];
 
 // FOR => EACH
-data.forEach((item) => console.log(item)); // Array
-data.forEach((item) => console.log(item.id)); // Array Object
+aData.forEach((oData) => console.log(oData));     // Array
+aData.forEach((oData) => console.log(oData.ID));  // Array Object
 
 // FOR => EACH
-data.forEach((item, index) => {
-  console.log("Index is " + index + ", Item is " + item);
+aData.forEach((oData, iIndex) => {
+  console.log("Index is " + iIndex + ", Data is " + oData);
 });
 
 // FOR
-for (var i = 0; i < data.length; i++) {
-  data[i];
+for (let iIndex = 0; iIndex < aData.length; iIndex++) {
+  aData[iIndex];
 }
 
 // FOR => IN - Object
-for (var k in data) {
-  data[k];
+for (let iIndex in aData) {
+  aData[iIndex];
 }
 
 // FOR => OF - Array
-for (var x of data) {
-  x;
+for (let oData of aData) {
+  oData;
 }
 
 // FOR => OF - String
-var text = "Serhat";
-for (var y of text) {
-  console.log(y); // S e r h a t
+const sText = "Serhat";
+
+for (let sChar of sText) {
+  console.log(sChar); // S e r h a t
 }
 
 // FOR => OF - Array Object
-for (const item of data) {
-  console.log(item.key);
+for (const oData of aData) {
+  console.log(oData.Key);
 }
 
 // WHILE
-var l = 0;
-while (data[l]) {
-  console.log(data[l]);
-  l++;
+var iIndex = 0;
+
+while (aData[iIndex]) {
+  console.log(aData[iIndex]);
+  iIndex++;
 }
 
 // DO - WHILE
-var m = 0;
+var iIndex = 0;
+
 do {
-  console.log(m);
-  m++;
-} while (m < 10);
+  console.log(iIndex);
+  iIndex++;
+} while (iIndex < 10);

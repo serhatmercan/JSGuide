@@ -33,19 +33,20 @@ navigator.onLine; // true
 navigator.javaEnabled(); // false
 
 // NAVIGATOR Metot - Clipboard => Copy Text
-const button = document.querySelector("button");
-const textParagraph = document.querySelector("p");
+const oButton = document.querySelector("button");
+const oTextParagraph = document.querySelector("p");
 
-button.addEventListener("click", () => {
-	const text = textParagraph.textContent;
+oButton.addEventListener("click", () => {
+	const sText = oTextParagraph.textContent;
+	
 	if (navigator.clipboard) {
 		navigator.clipboard
-			.writeText(text)
-			.then(result => {
-				console.log(result);
+			.writeText(sText)
+			.then(oResult => {
+				console.log(oResult);
 			})
-			.catch(error => {
-				console.log(error);
+			.catch(oError => {
+				console.log(oError);
 			});
 	}
 });
@@ -53,23 +54,26 @@ button.addEventListener("click", () => {
 // POPUP ALERT
 window.alert("XSMERCAN"); // Popup Alert
 window.alert("Hello\nHow are you?"); // Popup Alert w/ New Line
-var result = window.confirm("Are you Serhat"); // Yes or No Question Alert
-result = window.prompt("Please Enter Your Name:", "Serhat Mercan"); // Input Alert w/ Hint
-console.log(result);
+
+// POPUP ALERT w/ Return
+let xResult = window.confirm("Are you Serhat"); // Yes or No Question Alert
+
+xResult = window.prompt("Please Enter Your Name:", "Serhat Mercan"); // Input Alert w/ Hint
+
+console.log(xResult);
 
 // TIMING
 // Create a Timer
-var time = setTimeout(function fnHello() {
+const oTime = setTimeout(() => {
 	alert("Hello");
 }, 5000); // 5000 msec => 5 seconds 
 // Stop a Time
-clearTimeout(time);
+clearTimeout(oTime);
 
 // Create & Stop Current Time
 // HTML = <p id="demo"/>
-time = setInterval(function fnTime() {
-	var date = new Date();
-	document.getElementById("demo").innerHTML = date.toLocaleTimeString();
+const oIntervalTime = setInterval(() => {
+	document.getElementById("demo").innerHTML = new Date().toLocaleTimeString();
 }, 1000);
 
-clearInterval(time);
+clearInterval(oIntervalTime);

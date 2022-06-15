@@ -1,26 +1,25 @@
 // Create a Map
-const mapData1 = { id: 1 };
-const mapData2 = { id: 2 };
-
-const mapData = new Map([[mapData1, [{ key: "Amount1", price: 100 }]]]);
+const oMapDataI = { ID: 1 };
+const oMapDataII = { ID: 2 };
+const oMapData = new Map([[oMapDataI, [{ Key: "Amount", Price: 100 }]]]);
 
 // Add Data to Map
-mapData.set(mapData2, [{ key: "Amount2", price: 250 }]);
+oMapDataI.set(oMapDataII, [{ Key: "Amount2", Price: 250 }]);
 
 // List Map
-for (const [key, value] of mapData.entries()) {
+for (let [key, value] of oMapData.entries()) {
 	console.log(key, value);
 }
 
 // List Map's Key
-for (const key of mapData.keys()) {
-	console.log(key);
+for (let sKey of oMapData.keys()) {
+	console.log(sKey);
 }
 
 // List Map's Value
-for (const value of mapData.values()) { 
-	console.log(value); 
+for (let sValue of oMapData.values()) { 
+	console.log(sValue); 
 }
 
 // Size of Map
-mapData.size; // => 2
+oMapData.size; // => 2

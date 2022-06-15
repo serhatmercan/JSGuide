@@ -1,89 +1,91 @@
 // HTML Elements
-const listElement = document.querySelector(".posts");
-const postTemplate = document.getElementById("single-post");
-const form = document.querySelector("#new-post form");
-const fetchButton = document.querySelector("#available-posts button");
-const postList = document.querySelector("ul");
+const oListElement = document.querySelector(".posts");
+const oPostTemplate = document.getElementById("single-post");
+const oForm = document.querySelector("#new-post form");
+const oFetchButton = document.querySelector("#available-posts button");
+const oPostList = document.querySelector("ul");
 
-function sendHttpRequest(method, url, data) {
-    return fetch(url, {
-        method: method,
-        body: JSON.stringify(data),
+function sendHttpRequest(sMethod, sURL, oData) {
+    return fetch(sURL, {
+        method: sMethod,
+        body: JSON.stringify(oData),
         headers: {
             "Content-Type": "application/json"
         }
     })
-        .then(response => {
-            if (response.status >= 200 && response.status < 300) {
-                return response.json();
+        .then(oResponse => {
+            if (oResponse.status >= 200 && oResponse.status < 300) {
+                return oResponse.json();
             } else {
-                return response.json().then(errData => {
-                    console.log(errData);
-                    throw new Error("Something went wrong - server-side.");
+                return oResponse.json().then(oError => {
+                    console.log(oError);
+                    throw new Error("Something Went Wrong - Server - Side.");
                 });
             }
         })
-        .catch(error => {
-            console.log(error);
-            throw new Error("Something went wrong!");
+        .catch(oError => {
+            console.log(oError);
+            throw new Error("Something Went Wrong!");
         });
 }
 
 // Get Data
 async function fetchPosts() {
     try {
-        const responseData = await sendHttpRequest(
+        const aResponses = await sendHttpRequest(
             "GET",
             "https://jsonplaceholder.typicode.com/posts"
-        );
-        const listOfPosts = responseData;
-        for (const post of listOfPosts) {
-            const postEl = document.importNode(postTemplate.content, true);
-            postEl.querySelector("h2").textContent = post.title.toUpperCase();
-            postEl.querySelector("p").textContent = post.body;
-            postEl.querySelector("li").id = post.id;
-            listElement.append(postEl);
+        );        
+        for (const oResponse of aResponses) {
+            const oPostEl = document.importNode(oResponse.content, true);
+
+            oPostEl.querySelector("h2").textContent = oResponse.Title.toUpperCase();
+            oPostEl.querySelector("p").textContent = oResponse.Body;
+            oPostEl.querySelector("li").id = oResponse.ID;
+
+            oListElement.append(oPostEl);
         }
-    } catch (error) {
-        alert(error.message);
+    } catch (oError) {
+        alert(oError.message);
     }
 }
 
 // Send Data
-async function createPost(title, content) {
-    const userId = Math.random();
-    const post = {
-        title: title,
-        body: content,
-        userId: userId
+async function createPost(sTitle, sContent) {
+    const sUserID = Math.random();
+    const oPost = {
+        Title: sTitle,
+        Body: sContent,
+        UserID: sUserID
     };
 
     // Using Form Data w/out Body: JSON Format & No Header    
-    // const fd = new FormData(form);
-    // fd.append('title', title);
-    // fd.append('body', content);
-    // fd.append('userId', userId);
+    // const oFormData = new FormData(Form);
+    // oFormData.append('Title', sTitle);
+    // oFormData.append('Body', sContent);
+    // oFormData.append('UserID', sUserID);
 
-    sendHttpRequest("POST", "https://jsonplaceholder.typicode.com/posts", post);
+    sendHttpRequest("POST", "https://jsonplaceholder.typicode.com/posts", oPost);
 }
 
 fetchButton.addEventListener("click", fetchPosts);
 
-form.addEventListener("submit", event => {
-    event.preventDefault();
-    const enteredTitle = event.currentTarget.querySelector("#title").value;
-    const enteredContent = event.currentTarget.querySelector("#content").value;
+form.addEventListener("submit", oEvent => {
+    oEvent.preventDefault();
 
-    createPost(enteredTitle, enteredContent);
+    const sTitle = oEvent.currentTarget.querySelector("#title").value;
+    const sContent = oEvent.currentTarget.querySelector("#content").value;
+
+    createPost(sTitle, sContent);
 });
 
 // Delete Data
-postList.addEventListener("click", event => {
-    if (event.target.tagName === "BUTTON") {
-        const postId = event.target.closest("li").id;
+postList.addEventListener("click", oEvent => {
+    if (oEvent.target.tagName === "BUTTON") {
+        const sPostID = oEvent.target.closest("li").id;
         sendHttpRequest(
             "DELETE",
-            `https://jsonplaceholder.typicode.com/posts/${postId}`
+            `https://jsonplaceholder.typicode.com/posts/${sPostID}`
         );
     }
 });

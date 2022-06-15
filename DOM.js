@@ -1,80 +1,89 @@
 // Call Parent
-var item = this.byId("idItem").getDomRef(); // => this.document.getElementById("idItem").
-item.parentElement.style.width = "100%";
+var oItem = this.byId("Item").getDomRef(); // => this.document.getElementById("Item").
+
+oItem.parentElement.style.width = "100%";
 
 // Find HTML Elements
-document.getElementById("idElement"); // Find Element w/ ID	=>	ID  	=	"idElement"
-document.getElementsByTagName("p")[0]; // Find Element w/ Tag			=> 	Tag		=	<p>
-document.getElementsByClassName("intro")[0]; // Find Element w/ Class		=>	Class	=	intro
-document.querySelectorAll("p.intro")[0]; // Find Element w/ Tag & Class	=> 	Tag		=	<p>		Class =	intro
-document.forms["form1"][0]; // Find Element w/ Form			=>	Form	=	form1
+document.getElementById("Element");           // Find Element w/ ID	          => ID     = "Element"
+document.getElementsByTagName("p")[0];        // Find Element w/ Tag          => Tag    =	<p>
+document.getElementsByClassName("intro")[0];  // Find Element w/ Class	      => Class  =	intro
+document.querySelectorAll("p.intro")[0];      // Find Element w/ Tag & Class	=> Tag		=	<p>		      Class =	intro
+document.forms["Form"][0];                    // Find Element w/ Form			    => Form	  =	Form
 
 // Changing HTML Style
 /*
-<div id="div1"> 
-  <p id="demo">Demo Paragraph</p>
+<div id="Div"> 
+  <p id="Demo">Demo Paragraph</p>
 </div>
 */
 
-this.document.getElementById("demo").style.dispaly = "none"; // Hide Element
-this.document.getElementById("demo").style.color = "blue"; // Change Element Text Color
-this.document.getElementById("demo").style.backgroundColor = "#1ec5e5"; // Change Element Text Background Color
+this.document.getElementById("Demo").style.dispaly = "none";            // Hide Element
+this.document.getElementById("Demo").style.color = "blue";              // Change Element Text Color
+this.document.getElementById("Demo").style.backgroundColor = "#1ec5e5"; // Change Element Text Background Color
 
 // HTML Events: click - change - focus - mouseover - mouseout - mousedown - mouseup - mousemove
 // Click - 1
-document.getElementById("demo").addEventListener("click", function () {
+document.getElementById("Demo").addEventListener("click", function () {
   alert("Hello World!");
 });
 // Click - 2
-document.getElementById("myBtn").addEventListener("click", sayHello);
+document.getElementById("Button").addEventListener("click", sayHello);
 
 function sayHello() {
   alert("Hello World!");
 }
 
 // Nodes
-let paragraph = document.createElement("p");
-let node = document.createTextNode("This is a new paragraph.");
-let parent = document.getElementById("div1");
-let child = document.getElementById("demo");
+const oParagraph = document.createElement("p");
+const oNode = document.createTextNode("This Is a New Paragraph.");
+const oChild = document.getElementById("Demo");
+var oParent = document.getElementById("Div");
 
-paragraph.appendChild(node); // Creating a New Nodes
-parent.appendChild(paragraph); // Add Node To Division Ending
-parent.insertBefore(paragraph, child); // Add Node To Insert Before Child
-parent.replaceChild(paragraph, child); // Replace Place Children
-parent.remove(); // Remove Node From Page
-parent.removeChild(child); // Remove Node From Parent
+oParagraph.appendChild(oNode);            // Creating a New Nodes
+oParent.appendChild(oParagraph);          // Add Node To Division Ending
+oParent.insertBefore(oParagraph, oChild); // Add Node To Insert Before Child
+oParent.replaceChild(oParagraph, oChild); // Replace Place Children
+oParent.remove();                         // Remove Node From Page
+oParent.removeChild(oChild);              // Remove Node From Parent
 
-document.body.insertAdjacentElement("afterbegin", parent); // Add Item to Body
-document.body.removeChild(parent);                         // Remove Item From Body 
-this.parent.remove();                                      // Remove Item From Body
-this.parent = null;                                        // Clear Item
+document.body.insertAdjacentElement("afterbegin", oParent); // Add Item to Body
+document.body.removeChild(oParent);                         // Remove Item From Body 
+this.oParent.remove();                                      // Remove Item From Body
+this.oParent = null;                                        // Clear Item
 
 // Collection
-var collection = document.getElementsByTagName("p");
-for (var i = 0; i < collection.length; i++) {
-  collection[i].style.color = "red";
-}
+const aCollections = document.getElementsByTagName("p");
+
+aCollections.forEach(oCollection => {
+  oCollection.style.color = "red";
+});
 
 // Nodes List
-var nodeList = document.querySelectorAll("p");
-for (var x = 0; x < nodeList.length; x++) {
-  nodeList[x].style.color = "red";
-}
+const aNodes = document.querySelectorAll("p");
+
+aNodes.forEach(oNode => {
+  oNode.style.color = "red";
+});
 
 // Create Element in HTML
-// <ul id="list"></ul>;
+// <ul id="List"></ul>;
 
-const data = [];
+const aData = [];
+
+// Create Elements
+aData.forEach(oData => this.createElement(oData));
+
+// Delete Element
+this.deleteElement("X");
 
 // eslint-disable-next-line no-unused-vars
-const createElement = (data) => {
-  const newElement = document.createElement("li");
+const createElement = (oData) => {
+  const oNewElement = document.createElement("li");
 
-  newElement.className = "movie-element";
-  newElement.innerHTML = `
+  oNewElement.className = "movie-element";
+  oNewElement.innerHTML = `
     <div class="movie-element__image">
-      <img src="${data.URL}" alt="${data.title}">
+      <img src="${oData.URL}" alt="${oData.title}">
     </div>
     <div class="movie-element__info">
       <h2>${data.title}</h2>
@@ -82,18 +91,18 @@ const createElement = (data) => {
     </div>
   `;
 
-  newElement.addEventListener(
+  oNewElement.addEventListener(
     "click",
-    deleteElement.bind(null, data.id)
+    deleteElement.bind(null, oData.id)
   );
 
-  document.getElementById("list").append(newElement);
+  document.getElementById("List").append(oNewElement);
 };
 
 // Delete Element in HTML
-const deleteElement = (id) => {
-  const dataIndex = data.findIndex((item) => item.id === id);
-  data.splice(id, 1);
-  document.getElementById("list").children[dataIndex].remove();
-};
+const deleteElement = (sID) => {
+  const iDataIndex = aData.findIndex(oData => oData.sID === sID);
 
+  aData.splice(sID, 1);
+  document.getElementById("List").children[iDataIndex].remove();
+};

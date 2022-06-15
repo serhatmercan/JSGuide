@@ -1,41 +1,42 @@
 // Library Land
 // Create a Symbol
-const uid = Symbol();
+const UID = Symbol();
 
-const user = {
-    [uid]: "p1",
-    name: "Serhat",
-    age: 26
+const oUser = {
+    [UID]: "PI",
+    Name: "Serhat",
+    Age: 26
 };
 
 // Change the Symbol Value
-user[uid] = "p2";
-
-console.log(user);
+oUser[UID] = "PII";
 
 // Iterator
-const people = {
-    currentMercan: 0,
-    mercans: ["Serhat", "Elif", "Selim"],
-    next() {
-        if (this.currentMercan >= this.mercans.length) {
-            return { value: this.currentMercan, done: true };
+const oPeople = {
+    CurrentMercan: 0,
+    Mercans: ["Serhat", "Elif", "Selim"],
+    Next() {
+        if (this.CurrentMercan >= this.Mercans.length) {
+            return { Value: this.CurrentMercan, Done: true };
         }
 
-        const returnValue = {
-            value: this.mercans[this.currentMercan],
-            done: false
+        const oValue = {
+            Value: this.Mercans[this.CurrentMercan],
+            Done: false
         };
 
-        this.currentMercan++;
+        this.CurrentMercan++;
 
-        return returnValue;
+        return oValue;
     }
 };
 
-let mercan = people.next();
+let oMercan = oPeople.Next();
 
-while (!mercan.done) {
-    console.log(mercan.value);
-    mercan = people.next();
+while (!oMercan.Done) {
+    console.log(oMercan.Value);
+    oMercan = oPeople.Next();
 }
+
+// Show Symbol
+console.log(oUser);

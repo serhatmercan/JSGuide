@@ -16,7 +16,7 @@ export default class { }
 
 // Import JS Function
 import("./Module.js").then(module => {
-    const mod = new module.Module(
+    const oMod = new module.Module(
         () => {
             this.x = false;
         }

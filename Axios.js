@@ -1,61 +1,63 @@
 // <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 // HTML Elements
-const listElement = document.querySelector(".posts");
-const postTemplate = document.getElementById("single-post");
-const form = document.querySelector("#new-post form");
-const fetchButton = document.querySelector("#available-posts button");
-const postList = document.querySelector("ul");
+const oListElement = document.querySelector(".posts");
+const oPostTemplate = document.getElementById("single-post");
+const oForm = document.querySelector("#new-post oForm");
+const oFetchButton = document.querySelector("#available-posts button");
+const oPostList = document.querySelector("ul");
 
 // Get Data
 async function fetchPosts() {
     try {
-        const response = await axios.get(
+        const oResponse = await axios.get(
             "https://jsonplaceholder.typicode.com/posts"
         );
-        const listOfPosts = response.data;
-        for (const post of listOfPosts) {
-            const postEl = document.importNode(postTemplate.content, true);
-            postEl.querySelector("h2").textContent = post.title.toUpperCase();
-            postEl.querySelector("p").textContent = post.body;
-            postEl.querySelector("li").id = post.id;
-            listElement.append(postEl);
+        const aListOfPosts = oResponse.data;
+        for (const oPost of aListOfPosts) {
+            const oPostEl = document.importNode(oPostTemplate.content, true);
+            oPostEl.querySelector("h2").textContent = oPost.title.toUpperCase();
+            oPostEl.querySelector("p").textContent = oPost.body;
+            oPostEl.querySelector("li").id = oPost.id;
+            oListElement.append(oPostEl);
         }
-    } catch (error) {
-        alert(error.message);
-        console.log(error.response);
+    } catch (oError) {
+        alert(oError.message);
+        console.log(oError.response);
     }
 }
 
 // Send Data
-async function createPost(title, content) {
-    const userId = Math.random();
-    const post = {
-        title: title,
-        body: content,
-        userId: userId
+async function createPost(sTitle, sContent) {
+    const iUserID = Math.random();
+    const oPost = {
+        title: sTitle,
+        body: sContent,
+        userId: iUserID
     };
 
-    const response = await axios.post(
+    const oResponse = await axios.post(
         "https://jsonplaceholder.typicode.com/posts",
-        post
+        oPost
     );
-    console.log(response);
+    console.log(oResponse);
 }
 
-fetchButton.addEventListener("click", fetchPosts);
-form.addEventListener("submit", event => {
-    event.preventDefault();
-    const enteredTitle = event.currentTarget.querySelector("#title").value;
-    const enteredContent = event.currentTarget.querySelector("#content").value;
+oFetchButton.addEventListener("click", fetchPosts);
 
-    createPost(enteredTitle, enteredContent);
+oForm.addEventListener("submit", oEvent => {
+    oEvent.preventDefault();
+
+    const sEnteredTitle = oEvent.currentTarget.querySelector("#title").value;
+    const sEnteredContent = oEvent.currentTarget.querySelector("#content").value;
+
+    createPost(sEnteredTitle, sEnteredContent);
 });
 
 // Delete Data
-postList.addEventListener("click", event => {
-    if (event.target.tagName === "BUTTON") {
-        const postId = event.target.closest("li").id;
+oPostList.addEventListener("click", oEvent => {
+    if (oEvent.target.tagName === "BUTTON") {
+        const postId = oEvent.target.closest("li").id;
         axios.delete(`https://jsonplaceholder.typicode.com/posts/${postId}`);
     }
 });
