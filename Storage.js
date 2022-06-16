@@ -1,76 +1,66 @@
 // Attributes
-const userID = "123";
+const sUserID = "123";
 
-const person = {
-    name: "Serhat",
-    age: 26,
-    city: "İstanbul"
+const oPerson = {
+    Name: "Serhat",
+    Age: 28,
+    City: "İstanbul"
 };
 
-const JSONData = JSON.stringify(person); // Send Data	=> "{"name":"Serhat","age":26,"city":"İstanbul"}"
+const JSONData = JSON.stringify(oPerson); // Send Data	=> "{"name":"Serhat","age":26,"city":"İstanbul"}"
+
 JSON.parse(JSONData); // Display Data As Object
 
 // Local Storage
-localStorage.setItem("data", JSONData); // Store Data 
-localStorage.getItem("data");           // Retrieve Data
-localStorage.removeItem("data");        // Delete Data
+localStorage.setItem("Data", JSONData); // Store Data 
+localStorage.getItem("Data");           // Retrieve Data
+localStorage.removeItem("Data");        // Delete Data
 
 // Session Storage
-sessionStorage.setItem("uid", userID);  // Store Data
-sessionStorage.getItem(userID);         // Retrieve Data
+sessionStorage.setItem("UID", sUserID);  // Store Data
+sessionStorage.getItem(sUserID);         // Retrieve Data
 
 // Cookie
-document.cookie = "User ID : " + userID;    // Store Data
-console.log(document.cookie);               // Retrieve Data
+document.cookie = "User ID : " + sUserID;    // Store Data
+console.log(document.cookie);                // Retrieve Data
 
 // Indexed DB
-let db;
-const dbRequest = indexedDB.open("StorageDummy", 1);
+let oDB;
+const oDBRequest = indexedDB.open("StorageDummy", 1);
 
-dbRequest.onsuccess = function (event) {
-    db = event.target.result;
-};
+oDBRequest.onsuccess = (oEvent) => oDB = oEvent.target.result;
+oDBRequest.onerror = () => console.log("ERROR!");
 
-dbRequest.onupgradeneeded = function (event) {
-    db = event.target.result;
+oDBRequest.onupgradeneeded = function (oEvent) {
+    oDB = oEvent.target.result;
 
-    const objStore = db.createObjectStore("products", { keyPath: "id" });
+    const oStore = oDB.createObjectStore("Products", { keyPath: "ID" });
 
-    objStore.transaction.oncomplete = function () {
-        const productsStore = db
-            .transaction("products", "readwrite")
-            .objectStore("products");
-        productsStore.add({
-            id: "p1",
-            title: "A First Product",
-            price: 12.99,
+    oStore.transaction.oncomplete = function () {
+        const oProductsStore = oDB.transaction("Products", "readwrite").objectStore("Products");
+
+        oProductsStore.add({
+            ID: "PI",
+            Title: "A First Product",
+            Price: 12.99,
         });
     };
 };
 
-dbRequest.onerror = function () {
-    console.log("ERROR!");
-};
-
 // Reach Indexed DB
-let productsStore = db
-    .transaction("products", "readwrite")
-    .objectStore("products");
+let oProductsStore = oDB.transaction("Products", "readwrite").objectStore("Products");
 
 // Add Item to Indexed DB
-productsStore.add({
-    id: "p2",
-    title: "A Second Product",
-    price: 122.99,
+oProductsStore.add({
+    ID: "PII",
+    Title: "A Second Product",
+    Price: 122.99,
 });
 
-productsStore = db
-    .transaction("products", "readwrite")
-    .objectStore("products");
+oProductsStore = oDB.transaction("Products", "readwrite").objectStore("Products");
 
 // Get Item From Indexed DB
-const request = productsStore.get("p2");
+const oRequest = oProductsStore.get("PII");
 
-request.onsuccess = function () {
-    console.log(request.result);
-};
+oRequest.onsuccess = () => console.log(oRequest.result);
+

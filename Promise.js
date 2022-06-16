@@ -1,10 +1,10 @@
 /* eslint-disable quotes */
 /* eslint-disable no-unused-vars */
-const button = document.querySelector("button");
-const output = document.querySelector("p");
+const oButton = document.querySelector("button");
+const oOutput = document.querySelector("p");
 
-const getPosition = opts => {
-    const promise = new Promise((resolve, reject) => {
+const getPosition = oPosition => {
+    const oPromise = new Promise((resolve, reject) => {
         navigator.geolocation.getCurrentPosition(
             success => {
                 resolve(success);
@@ -12,57 +12,57 @@ const getPosition = opts => {
             error => {
                 reject(error);
             },
-            opts
+            oPosition
         );
     });
 
-    return promise;
+    return oPromise;
 };
 
-const setTimer = duration => {
-    const promise = new Promise((resolve, reject) => {
+const setTimer = Duration => {
+    const oPromise = new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve("Done!");
-        }, duration);
+        }, Duration);
     });
 
-    return promise;
+    return oPromise;
 };
 
 async function trackUserHandler() {
-    let positionData;
-    let posData;
-    let timerData;
+    let oPositionData;
+    let oPosData;
+    let oTimerData;
 
     try {
-        posData = await getPosition();
-        timerData = await setTimer(2000);
-    } catch (error) {
-        console.log(error);
+        oPosData = await getPosition();
+        oTimerData = await setTimer(2000);
+    } catch (oError) {
+        console.log(oError);
     }
 
-    console.log(timerData, posData);
+    console.log(oTimerData, oPosData);
 
     setTimer(1000).then(() => {
-        console.log('Timer done!');
+        console.log("Timer Done!");
     });
 
-    console.log('Getting position...');
+    console.log("Getting Position...");
 }
 
-button.addEventListener('click', trackUserHandler);
+oButton.addEventListener('click', trackUserHandler);
 
 // Return Data
-Promise.race([getPosition(), setTimer(1000)]).then(data => {
-    console.log(data);
+Promise.race([getPosition(), setTimer(1000)]).then(oData => {
+    console.log(oData);
 });
 
 // Return Array
-Promise.all([getPosition(), setTimer(1000)]).then(data => {
-    console.log(data);
+Promise.all([getPosition(), setTimer(1000)]).then(oData => {
+    console.log(oData);
 });
 
 // Return Array Object
-Promise.allSettled([getPosition(), setTimer(1000)]).then(data => {
-    console.log(data);
+Promise.allSettled([getPosition(), setTimer(1000)]).then(oData => {
+    console.log(oData);
 });

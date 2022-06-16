@@ -1,27 +1,24 @@
 /* eslint-disable no-unused-vars */
-let values = ["Hare", "Krishna", "Hare", "Krishna", "Krishna", "Krishna", "Hare", "Hare", ":-O"];
 
-fnUnique = (data) => {
-	return Array.from(new Set(data));
-};
+// SET
+// Create Set
+const aData = new Set(["Serhat", "Mercan", 26]);
 
-console.log(fnUnique(values)); // ["Hare", "Krishna", ":-O"]
+// Add Item
+aData.add("Software Engineer");
 
-// Create a Set
-const data = new Set(["Serhat", "Mercan", 26]);
+// Check Item
+aData.has(26); // => True
 
-// Add Item to Set
-data.add("Software Engineer");
+// Delete Item
+aData.delete(26); // => True
 
-// Delete Item From Set
-if (data.has(26)) {
-	data.delete(26);
-}
+// List Items
+aData.forEach(oData => console.log(oData));
 
-// List Item of Set
-for (const item of data.entries()) {
-	console.log(item[0]);
-}
+// SET: Methods
+// Get Unique Items In Array
+Array.from(new Set(aData));
 
-// Map & Set
-let aColumnIDs = [...new Set(aData.map(item => item.ID))];
+// Get Unique Items In Array Object
+aIDs = [...new Set(aData.map(oData => oData.ID))];

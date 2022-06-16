@@ -1,22 +1,22 @@
 class Product {
-    constructor(id, title, price) {
-        this.id = id;
-        this.title = title;
-        this.price = price;
+    constructor(ID, Title, Price) {
+        this.ID = ID;
+        this.Title = Title;
+        this.Price = Price;
     }
 }
 
 class ProductItem {
-    constructor(product) {
-        this.product = product;
+    constructor(oProduct) {
+        this.Product = oProduct;
     }
 }
 
 class ProductList {
-    products = [
+    Products = [
         new Product("1", "PC", 100),
-        new Product("2", "TV", 50),
+        new Product("2", "TV", 50)
     ];
 }
 
-const productItem = new ProductItem();
+const oProductItems = new ProductList();
