@@ -59,7 +59,7 @@ xData.map(oItem => {
 });
   
 // Array Object: Reduce - Calculate Total Value - 0: Initial Value
-xData.reduce(iSum, oCurrent => iSum + oCurrent.Value, 0); // => 110
+xData.reduce((iSum, oCurrent) => iSum + oCurrent.Value, 0); // => 110
 
 // Array Object: Remove Duplicate Objects
 xData.map(oData => {

@@ -1,5 +1,6 @@
 // String
 const sText = "Serhat Mercan locates in Serhat Mercan";
+const iValue = 5;
 
 // Char At: Find Index of First Matched Character 
 "Serhat".charAt(4); 		// => a
@@ -73,7 +74,7 @@ sText.substring(7, 13); 							// => Mercan
 "ğüiçşö".toLocaleUpperCase(); 						// "ĞÜIÇŞÖ"
 
 // To String: Conversion
-5.toString(); // => "5"
+iValue.toString(); // => "5"
 
 // Trim: Remove Space
 "   Serhat Mercan   ".trim(); 						// Serhat Mercan

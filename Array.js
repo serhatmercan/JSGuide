@@ -32,7 +32,7 @@ aNumbers.every(iNumber => iNumber > 10); // False
 aNumbers.filter(iNumber => iNumber > 10); // => 99
 
 // Array: Find
-aNumbers.find(iNumber => iNumber > 10); // 11
+aNumbers.find(iNumber => iNumber > 10); // 99
 
 // Array: Find Index
 aNumbers.findIndex(iNumber => iNumber === 99); // 2
