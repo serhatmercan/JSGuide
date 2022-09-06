@@ -106,3 +106,18 @@ const deleteElement = (sID) => {
   aData.splice(sID, 1);
   document.getElementById("List").children[iDataIndex].remove();
 };
+
+// HTML DOM Audio Object
+onRecord = (oEvent) => {
+  const oContext = oEvent.getSource().getParent().getParent().getBindingContext().getObject();
+  const oAudio = document.createElement("audio");
+  const oSource = document.createElement("source");
+
+  oSource.type = "audio/mpeg";
+  oSource.src = oContext["CallRecUrl"];
+
+  oAudio.appendChild(oSource);
+  oAudio.controls = true;
+
+  oEvent.getSource().getParent().addItem(new HTML().setDOMContent(oAudio));
+};
