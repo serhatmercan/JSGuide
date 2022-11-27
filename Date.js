@@ -13,7 +13,7 @@ dToday.toLocaleDateString("en-US");	// "6/28/2020"
 
 // Convert Date
 new Date(Date.UTC(dToday.getFullYear(), dToday.getMonth(), dToday.getDate()));	// Tue Jun 01 2021 03:00:00 GMT+0300 (GMT+03:00)
-console.log(dateUTC); 
+console.log(dateUTC);
 
 // Find Min Date From Array
 new Date(Math.min(...aData.map(e => new Date(e.Tarih))));
