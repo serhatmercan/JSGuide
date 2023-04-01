@@ -51,6 +51,22 @@ xData.filter(oData => oData.Value.includes("1"));
 xData.findIndex(oData => oData.Key === "2"); // 1
 xData.findIndex(oData => oData.Key === "2" || oData.Value === 100); // 1
 
+// Array Object: Group I
+aData.reduce((aGroups, oData) => {
+  const { Key } = oData;
+
+  aGroups[Key] = aGroups[Key] ?? [];
+  aGroups[Key].push(oData);
+
+  return aGroups;
+}, {});
+
+// Array Object: Group II
+aData.reduce((aGroups, oData) => {
+  (aGroups[oData.Key] = aGroups[oData.Key] || []).push(oData);
+  return aGroups;
+}, {});
+
 // Array Object: Map - Change Keys
 xData.map(oItem => {
   return {

@@ -49,12 +49,15 @@ sRegExp.rightConsText; // " SERHAT MERCAN 1234567890"
 sRegExp = /Serhat/gi;
 sText.replace(sRegExp, "Selim");  // "Selim mercan Selim Mercan Selim MERCAN 1234567890"
 // Multi
-sRegExp = /(Serhat|Selim)/gi; 
+sRegExp = /(Serhat|Selim)/gi;
 sText.replace(sRegExp, "Elif"); // "Elif mercan Elif Mercan Elif MERCAN 1234567890"
 
 // Divide sText To Array
 sRegExp = / /gi;
 sText.split(sRegExp); // ["Serhat", "mercan", "serhat", "Mercan", "SERHAT", "MERCAN", "1234567890"] 
+
+// Check Alphabetic & Space Only
+/^[a-zA-Z() ]+$/.test(sRegExp);
 
 // Check Beginning Value
 sRegExp = /^Serhat/i;
@@ -62,6 +65,9 @@ sRegExp.test(sText); // True
 
 sRegExp = /^Mercan/i;
 sRegExp.test(sText); // False
+
+// Check Only Digit
+/^\d+$/.test(sRegExp);
 
 // Check Ending Value
 sRegExp = /Mercan$/i;

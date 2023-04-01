@@ -8,12 +8,12 @@ const oData = {
   ID: "X",
   Value: 10
 };
-const xData =  { 
-  ...oData 
+const xData = {
+  ...oData
 };
-const xCopyData =  { 
+const xCopyData = {
   ...oData,
-  Number: oData.Value  
+  Number: oData.Value
 };
 
 // Inner Object
@@ -38,6 +38,13 @@ Object.getPrototypeOf(personX); // {constructor: ƒ, __defineGetter__: ƒ, __def
 
 // Method: Check Object Contains Property
 oData.hasOwnProperty("ID"); // => True
+
+// Method: Uppercase To All Strings
+Object.keys(oData).forEach((xItem) => {
+  if (typeof oData[xItem] == "string") {
+    oData[xItem] = oData[xItem].toLocaleUpperCase()
+  }
+})
 
 // Method: Returns All Properties As An Array
 Object.getOwnPropertyNames(oData); // => ['ID', 'Value']
