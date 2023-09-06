@@ -56,8 +56,11 @@ sText.replace(sRegExp, "Elif"); // "Elif mercan Elif Mercan Elif MERCAN 12345678
 sRegExp = / /gi;
 sText.split(sRegExp); // ["Serhat", "mercan", "serhat", "Mercan", "SERHAT", "MERCAN", "1234567890"] 
 
-// Check Alphabetic & Space Only
+// Check Alphabetic & Space Only - EN
 /^[a-zA-Z() ]+$/.test(sRegExp);
+
+// Check Alphabetic & Space Only - TR
+/^[\p{L}\s]+$/u.test(sRegExp);
 
 // Check Beginning Value
 sRegExp = /^Serhat/i;

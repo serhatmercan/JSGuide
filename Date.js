@@ -17,3 +17,6 @@ console.log(dateUTC);
 
 // Find Min Date From Array
 new Date(Math.min(...aData.map(e => new Date(e.Tarih))));
+
+// Get Year
+new Date().getUTCFullYear().toString(); // "2023"

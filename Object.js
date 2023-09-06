@@ -3,6 +3,9 @@
 /* eslint-disable getter-return */
 /* eslint-disable no-unused-vars */
 
+// Check Object Property
+const oBeginDate = oEvent.getParameter("exportSettings")?.workbook?.columns?.find(oColumn => oColumn.property === "BeginDate");
+
 // Copy Object
 const oData = {
   ID: "X",
