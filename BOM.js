@@ -38,7 +38,7 @@ const oTextParagraph = document.querySelector("p");
 
 oButton.addEventListener("click", () => {
 	const sText = oTextParagraph.textContent;
-	
+
 	if (navigator.clipboard) {
 		navigator.clipboard
 			.writeText(sText)
@@ -61,6 +61,13 @@ let xResult = window.confirm("Are you Serhat"); // Yes or No Question Alert
 xResult = window.prompt("Please Enter Your Name:", "Serhat Mercan"); // Input Alert w/ Hint
 
 console.log(xResult);
+
+// VARIABLE
+if (window.iCount !== 0) {
+	this.byId("Table").getBinding("items").refresh(true);
+} else {
+	window.iCount++;
+}
 
 // TIMING
 // Create a Timer

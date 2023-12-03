@@ -58,3 +58,19 @@ function getWeather(WOEID) {
 
 getWeather(2487956);
 getWeather(44418);
+
+// AJAX: Fetch II
+$.ajax({
+  cache: false,
+  type: "GET",
+  url: "/sap/opu/odata/SAP/ZSM_TST_SRV/ValueSet?$filter=ID eq('X')",
+  dataType: "json",
+  success: (oData, s, a) => {
+    const xData = oData;
+  },
+  error: (oError, t, s) => {
+    if (oError.responseJSON != undefined) {
+      const sMessage = oError.responseJSON.error.message.value;
+    }
+  }
+});
