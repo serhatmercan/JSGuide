@@ -16,6 +16,15 @@ xData.map(oData => ({
   Item: oData.Item
 }));
 
+// Array Object: Check Duplicate Objects In Array w/ Two Fields
+checkDuplicate = (aData) => {
+  const xData = new Set();
+  return aData.some(({ FieldI, FieldII }) => {
+    const sKey = `${FieldI}-${FieldII}`;
+    return xData.has(sKey) ? true : (xData.add(sKey), false);
+  });
+};
+
 // Array Object: Check Duplicate Objects In Array
 checkDuplicateObjectsInArray = (aData) => {
   let aTable = aData.map(oItem => {
@@ -39,6 +48,17 @@ xData.map(oItem => {
   delete oItem.Value;
   return oItem;
 });
+
+// Array Object: Delete Duplicate Object Field
+aUniqueData = aFullData.reduce((aData, oCurrent) => {
+  if (!aData.some(oData => oData.Pltyp === oCurrent.Pltyp)) {
+    aData.push(oCurrent);
+  }
+  return aData;
+}, []);
+
+// Array Object: Delete Reference
+aCopiedData = JSON.parse(JSON.stringify(aData));
 
 // Array Object: Every
 xData.every(oData => oData.Value > 1);  // => True 

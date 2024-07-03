@@ -19,6 +19,18 @@ const xCopyData = {
   Number: oData.Value
 };
 
+// Definition & Declaration
+oData = {
+  ID: "X",
+  Key: "123",
+  Text: "XYZ"
+};
+
+const { Key, Text } = oData;
+
+Key; //  "123
+Text; // "XYZ"
+
 // Inner Object
 const oPerson = {
   FirstName: "Serhat",

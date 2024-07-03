@@ -86,3 +86,13 @@ sText.match(sRegExp); // ["m", "c", "n", "M", "c", "n", "M", "C", "N", "1", "2",
 // Except Value Range
 sRegExp = /[^a-zA-Z ]/g;
 sText.match(sRegExp); // ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+
+// Function: Convert String Concatenate & Upper Case
+const aData = [
+    "AbcIndicator"
+];
+const aConvertedData = aData.forEach(sData => convertString(sData)); // => ["ABC_INDICATOR"]
+
+function convertString(sString) {
+    sString.replace(/([A-Z])/g, '_$1').trim().toUpperCase().slice(1);
+}
