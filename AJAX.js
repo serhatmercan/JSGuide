@@ -3,9 +3,9 @@
 function fnAJAX() {
   const xhttp = new XMLHttpRequest();
 
-  xhttp.onreadystatechange = function () {
+  xhttp.onreadystatechange = () => {
     // Gets Everytime Fired When the XHR Request State Changes
-    if (this.readyState == 4 && this.status == 200) {
+    if (this.readyState === 4 && this.status === 200) {
       // 4 means Request is Finished & Response is Ready 200 Means OK
       console.log(this.responseText); // This Refers Here to the XHR Object
 
@@ -34,43 +34,40 @@ function fnAJAX() {
   }
 }
 */
-function decodeXML(that) {
-  oData = that.responseXML.getElementsByTagName("p")[0].getElementsByTagName("DATA_COLUMN")[0].childNodes[0].nodeValue; // FOR
+function decodeXML(xhr) {
+  const oData = xhr?.responseXML?.getElementsByTagName("p")[0]?.getElementsByTagName("DATA_COLUMN")[0]?.childNodes[0]?.nodeValue;
+  // Add any additional processing logic for oData
 }
 
 // AJAX: Fetch
-function getWeather(WOEID) {
-  fetch(
-    `https://crossorigin.me/https://www.metaweather.com/api/location/${WOEID}/`
-  )
-    .then((oResult) => {
-      return oResult.json();
-    })
-    .then((oData) => {
-      const oToday = oData.consolidated_weather[0];
+async function getWeather(WOEID) {
+  try {
+    const oResponse = await fetch(`https://crossorigin.me/https://www.metaweather.com/api/location/${WOEID}/`);
+    const oData = await oResponse?.json();
+    const oToday = oData?.consolidated_weather[0];
 
-      console.log(
-        `Temperatures today in ${oData.title} stay between ${oToday.min_temp} and ${oToday.max_temp}.`
-      );
-    })
-    .catch((oError) => console.log(oError));
+    console.log(`Temperatures today in ${oData?.title} stay between ${oToday?.min_temp} and ${oToday?.max_temp}.`);
+  } catch (oError) {
+    console.error(oError);
+  }
 }
 
 getWeather(2487956);
 getWeather(44418);
 
-// AJAX: Fetch II
+// AJAX: Fetch II with jQuery
 $.ajax({
   cache: false,
   type: "GET",
   url: "/sap/opu/odata/SAP/ZSM_TST_SRV/ValueSet?$filter=ID eq('X')",
   dataType: "json",
-  success: (oData, s, a) => {
+  success: (oData) => {
     const xData = oData;
   },
-  error: (oError, t, s) => {
-    if (oError.responseJSON != undefined) {
-      const sMessage = oError.responseJSON.error.message.value;
+  error: (oError) => {
+    if (oError?.responseJSON) {
+      const sMessage = oError?.responseJSON?.error?.message?.value;
+      console.error(sMessage);
     }
   }
 });

@@ -1,7 +1,6 @@
-/* eslint-disable no-unused-vars */
-// Array
+// Definition
 let aData = [];
-let aNumbers = [1, 5, 99, 3, 4, 7];
+const aNumbers = [1, 5, 99, 3, 4, 7];
 
 // Array: Add Item
 aData.push("Serhat");  // => aData = ["Serhat"]
@@ -22,7 +21,7 @@ aData.slice(0, 2); // => aData = ["FB", Serhat"]
 aData.toString(); // => FB,Serhat,Elif,Selim,Mercan
 
 // Array: Copy Array w/out Reference
-[...aData]; // => ["FB", Serhat", "Elif", "Selim", "Mercan"]
+const aCopyData = [...aData]; // => ["FB", Serhat", "Elif", "Selim", "Mercan"]
 
 // Array: Every
 aNumbers.every(iNumber => iNumber > 0);  // True
@@ -68,17 +67,17 @@ aNumbers.map((iNumber) => iNumber * 2); // [2, 10, 198, 6, 8, 14];
 aData.map((oItem, iIndex) => iIndex + 1 + ". " + oItem); // ["1. FB", "2. Serhat", "3. Elif", "4. Selim", "5. Mercan"]
 
 // Array: Max Value
-Math.max.apply(null, aNumbers); // 99
+Math.max(...aNumbers); // 99
 
 // Array: Min Value
-Math.min.apply(null, aNumbers); // 1
+Math.min(...aNumbers); // 1
 
 // Array: Merge Two Arrays
-aData.concat(["X","Y"]); // => ["FB", Serhat", "Elif", "Selim", "Mercan", "X", "Y"]
-[...aData, ...aNumbers]; // => ["FB", Serhat", "Elif", "Selim", "Mercan", 1, 5, 99, 3, 4, 7]
+const aMergedData = aData.concat(["X", "Y"]); // => ["FB", "Elif", "Selim", "Serhat", "Mercan", "X", "Y"]
+const aCombinedData = [...aData, ...aNumbers]; // => ["FB", "Elif", "Selim", "Serhat", "Mercan", 1, 5, 99, 3, 4, 7]
 
 // Array: Reduce - Calculate Total Value
-aNumbers.reduce((iSum, oCurrent) => iSum + oCurrent, 0); // 119
+const iTotalValue = aNumbers.reduce((iSum, oCurrent) => iSum + oCurrent, 0); // 119
 
 // Array: Remove First Item
 aData.shift(); // => FB
@@ -96,8 +95,8 @@ aData.pop(); // => Elif
 console.table(aData);
 
 // Array: Some
-aNumbers.some((iNumber) => iNumber > 0);   // True
-aNumbers.some((iNumber) => iNumber > 100); // False
+aNumbers.some(iNumber => iNumber > 0);   // True
+aNumbers.some(iNumber => iNumber > 100); // False
 
 // Array: Sort - Alphabetically - Ascending
 aData.sort();
@@ -112,13 +111,11 @@ aNumbers.sort((a, b) => a - b); // => [1, 3, 4, 5, 7, 99]
 aNumbers.sort((a, b) => b - a); // => [99, 11, 7, 5, 4, 3, 1]
 
 // Array: Split & Map & Upper Case & Slice & Join
-camelize = (aData) => {
+const fnCamelize = (aData) => {
   return aData
     .split("-")
-    .map((sWord, iIndex) =>
-      iIndex == 0 ? sWord : sWord[0].toUpperCase() + sWord.slice(1)
-    )
+    .map((sWord, iIndex) => iIndex == 0 ? sWord : sWord[0].toUpperCase() + sWord.slice(1))
     .join("");
 };
 
-camelize("list-style-image"); // "listStyleImage"
+fnCamelize("list-style-image"); // "listStyleImage"

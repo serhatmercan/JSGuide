@@ -31,6 +31,11 @@ const { Key, Text } = oData;
 Key; //  "123
 Text; // "XYZ"
 
+const { Key: sKey, Text: sTextII } = oData;
+
+sKey; //  "123
+sTextII; // "XYZ"
+
 // Inner Object
 const oPerson = {
   FirstName: "Serhat",
