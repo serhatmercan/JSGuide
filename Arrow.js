@@ -1,14 +1,14 @@
 // Using w/out Parameters
-const fnArrow = () => "Hello World!";
-fnArrow(); // "Hello World!"
+const arrow = () => "Hello World!";
+arrow(); // "Hello World!"
 
 // Using w/ Parameter
-const fnArrowParameter = sText => `Hello ${sText}`;
-fnArrowParameter("Serhat"); // "Hello Serhat"
+const arrowParameter = sText => `Hello ${sText}`;
+arrowParameter("Serhat"); // "Hello Serhat"
 
 // Using w/ Parameters
-const fnArrowParameters = (sTextI, sTextII) => `Hello ${sTextI} ${sTextII}`;
-fnArrowParameters("Serhat", "Mercan"); // "Hello Serhat Mercan"
+const arrowParameters = (sTextI, sTextII) => `Hello ${sTextI} ${sTextII}`;
+arrowParameters("Serhat", "Mercan"); // "Hello Serhat Mercan"
 
 // Loop => FOR - EACH - Arrow Function
 aData.forEach(({ Name }) => console.log(Name));

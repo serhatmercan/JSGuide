@@ -1,24 +1,29 @@
-/* eslint-disable no-unused-vars */
-
-// SET
+// Set
 // Create Set
-const aData = new Set(["Serhat", "Mercan", 26]);
+const oDataSet = new Set(["Serhat", "Mercan", 26]);
 
 // Add Item
-aData.add("Software Engineer");
+oDataSet.add("Software Engineer");
 
 // Check Item
-aData.has(26); // => True
+oDataSet.has(26); // => true
 
 // Delete Item
-aData.delete(26); // => True
+oDataSet.delete(26); // => true
 
 // List Items
-aData.forEach(oData => console.log(oData));
+oDataSet.forEach(oData => console.log(oData));
 
-// SET: Methods
-// Get Unique Items In Array
-Array.from(new Set(aData));
+// Methods
+const aData = Array.from(oDataSet);
 
 // Get Unique Items In Array Object
-aIDs = [...new Set(aData.map(oData => oData.ID))];
+const aArrayObjects = [
+    { ID: 1, Name: "Serhat" },
+    { ID: 2, Name: "Mercan" },
+    { ID: 1, Name: "Serhat" }
+];
+const aUniqueIDs = [...new Set(aArrayObjects.map(oData => oData.ID))];
+
+console.log(aData);      // => ["Serhat", "Mercan", "Software Engineer"]
+console.log(aUniqueIDs); // => [1, 2]

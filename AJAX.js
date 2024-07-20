@@ -1,6 +1,6 @@
 // Create an XMLHttpRequest Object
 // eslint-disable-next-line no-unused-vars
-function fnAJAX() {
+function submitAJAX() {
   const xhttp = new XMLHttpRequest();
 
   xhttp.onreadystatechange = () => {

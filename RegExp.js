@@ -1,4 +1,4 @@
-// REGULAR EXPRESSION
+// Regular Expression
 const sText = "Serhat mercan serhat Mercan SERHAT MERCAN 1234567890";
 
 // Any Characters Match => []
@@ -35,64 +35,46 @@ sText.match(/an*/g); // => ["a", "an", "a", "an"]
 sText.match(/10?/g); // => ["1"]
 
 // Check String Contains Number
-/\d/.test(sText); // True
+/\d/.test(sText); // true
 
 // Get Left / Right ConsText
-const sRegExp = new sRegExp("Mercan", "g");
-
-sRegExp.test(sText); // True
-sRegExp.leftConsText; // "Serhat mercan serhat "
-sRegExp.rightConsText; // " SERHAT MERCAN 1234567890"
+sText.leftConsText;  // => "Serhat mercan serhat "
+sText.rightConsText; // => " SERHAT MERCAN 1234567890"
 
 // Replace sText
-// Single
-sRegExp = /Serhat/gi;
-sText.replace(sRegExp, "Selim");  // "Selim mercan Selim Mercan Selim MERCAN 1234567890"
-// Multi
-sRegExp = /(Serhat|Selim)/gi;
-sText.replace(sRegExp, "Elif"); // "Elif mercan Elif Mercan Elif MERCAN 1234567890"
+sText.replace(/Serhat/gi, "Selim"); // => "Selim mercan Selim Mercan Selim MERCAN 1234567890"
+sText.replace(/(Serhat|Selim)/gi, "Elif"); // => "Elif mercan Elif Mercan Elif MERCAN 1234567890"
 
 // Divide sText To Array
-sRegExp = / /gi;
-sText.split(sRegExp); // ["Serhat", "mercan", "serhat", "Mercan", "SERHAT", "MERCAN", "1234567890"] 
+sText.split(/ /gi); // => ["Serhat", "mercan", "serhat", "Mercan", "SERHAT", "MERCAN", "1234567890"] 
 
 // Check Alphabetic & Space Only - EN
-/^[a-zA-Z() ]+$/.test(sRegExp);
+/^[a-zA-Z() ]+$/.test(sText); // => false
 
 // Check Alphabetic & Space Only - TR
-/^[\p{L}\s]+$/u.test(sRegExp);
+/^[\p{L}\s]+$/u.test(sText); // => false
 
 // Check Beginning Value
-sRegExp = /^Serhat/i;
-sRegExp.test(sText); // True
-
-sRegExp = /^Mercan/i;
-sRegExp.test(sText); // False
+/^Serhat/i.test(sText); // => true 
+/^Mercan/i.test(sText); // => false
 
 // Check Only Digit
-/^\d+$/.test(sRegExp);
+/^\d+$/.test(sText); // => false
 
 // Check Ending Value
-sRegExp = /Mercan$/i;
-sRegExp.test(sText); // False
-
-sRegExp = /1234567890$/i;
-sRegExp.test(sText); // True
+/Mercan$/i.test(sText);     // => false
+/1234567890$/i.test(sText); // => true
 
 // Except Value
-sRegExp = /[^Serhat ]/gi;
-sText.match(sRegExp); // ["m", "c", "n", "M", "c", "n", "M", "C", "N", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+sText.match(/[^Serhat ]/gi); // => ["m", "c", "n", "M", "c", "n", "M", "C", "N", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
 // Except Value Range
-sRegExp = /[^a-zA-Z ]/g;
-sText.match(sRegExp); // ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+sText.match(/[^a-zA-Z ]/g); // => ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
 // Function: Convert String Concatenate & Upper Case
-const aData = [
-    "AbcIndicator"
-];
+const aData = ["AbcIndicator"];
 const aConvertedData = aData.forEach(sData => convertString(sData)); // => ["ABC_INDICATOR"]
 
-function convertString(sString) {
-    sString.replace(/([A-Z])/g, '_$1').trim().toUpperCase().slice(1);
-}
+convertString(sString => {
+    sString.replace(/([A-Z])/g, '_$1')?.trim()?.toUpperCase()?.slice(1);
+})

@@ -24,8 +24,8 @@ aData.toString(); // => FB,Serhat,Elif,Selim,Mercan
 const aCopyData = [...aData]; // => ["FB", Serhat", "Elif", "Selim", "Mercan"]
 
 // Array: Every
-aNumbers.every(iNumber => iNumber > 0);  // True
-aNumbers.every(iNumber => iNumber > 10); // False
+aNumbers.every(iNumber => iNumber > 0);  // true
+aNumbers.every(iNumber => iNumber > 10); // false
 
 // Array: Filter
 aNumbers.filter(iNumber => iNumber > 10); // => 99
@@ -95,8 +95,8 @@ aData.pop(); // => Elif
 console.table(aData);
 
 // Array: Some
-aNumbers.some(iNumber => iNumber > 0);   // True
-aNumbers.some(iNumber => iNumber > 100); // False
+aNumbers.some(iNumber => iNumber > 0);   // true
+aNumbers.some(iNumber => iNumber > 100); // false
 
 // Array: Sort - Alphabetically - Ascending
 aData.sort();
@@ -111,11 +111,11 @@ aNumbers.sort((a, b) => a - b); // => [1, 3, 4, 5, 7, 99]
 aNumbers.sort((a, b) => b - a); // => [99, 11, 7, 5, 4, 3, 1]
 
 // Array: Split & Map & Upper Case & Slice & Join
-const fnCamelize = (aData) => {
+const convertCamelize = (aData) => {
   return aData
     .split("-")
     .map((sWord, iIndex) => iIndex == 0 ? sWord : sWord[0].toUpperCase() + sWord.slice(1))
     .join("");
 };
 
-fnCamelize("list-style-image"); // "listStyleImage"
+convertCamelize("list-style-image"); // "listStyleImage"

@@ -22,7 +22,7 @@ window.history.back(); // Go To The Previous Page
 window.history.forward(); // Go To The Forward Page
 
 // NAVIGATOR
-const bCookieEnabled = navigator.cookieEnabled; // True
+const bCookieEnabled = navigator.cookieEnabled; // true
 const sAppName = navigator.appName; // "Netscape"
 const sAppCodeName = navigator.appCodeName; // Mozilla
 const sProduct = navigator.product; // "Gecko"

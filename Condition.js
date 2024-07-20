@@ -1,29 +1,23 @@
-/* eslint-disable no-unused-vars */
-const sValue = oEvent.getParameter("arguments").getValue() ? oEvent.getParameter("arguments").getValue() : "";
+// Definition
+const sValue = oEvent?.getParameter("arguments")?.getValue() ?? "";
 
 // isNaN
 const iAge = 10;
-let sMessage = "";
-	
-if (isNaN(iAge)) {
-	sMessage = "Input is not a number";
-} else {
-	sMessage = (iAge < 18) ? "Too Young" : "Old Enough";
-}
+const sMessage = isNaN(iAge) ? "Input is not a number" : (iAge < 18 ? "Too Young" : "Old Enough");
 
 // Logical Operators
 // OR
 const sUserInput = "";
-sUserInput || "Serhat";	// => "Serhat"
+const sDefaultUserInpu = sUserInput || "Serhat"; // => "Serhat"
 
 // AND
 const bLoggedIn = true;
-bLoggedIn && ["Books"];	// => ["Books"]
+const aBooks = bLoggedIn && ["Books"]; // => ["Books"]
 
 const sEnteredValue = "";
-sEnteredValue && "Serhat";	// => ""
+const sDefaultEnteredValue = sEnteredValue && "Serhat"; // => ""
 
 // Double NOT
 const sUserName = "SMERCAN";
-!!sUserName; //	=> true
-!sUserName;	//	=> false
+const bIsUserNamePresent = !!sUserName; // => true
+const bIsUserNameAbsent = !sUserName; 	// => false

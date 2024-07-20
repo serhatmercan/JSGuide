@@ -43,8 +43,8 @@ aUniqueData = aFullData.reduce((aData, oCurrent) => {
 const aCopiedData = JSON.parse(JSON.stringify(aData));
 
 // Array Object: Every
-aData.every(oData => oData.Value > 1);  // => True 
-aData.every(oData => oData.Value > 10); // => False 
+aData.every(oData => oData.Value > 1);  // => true 
+aData.every(oData => oData.Value > 10); // => false 
 
 // Array Object: Filter & Includes
 aData.filter(oData => oData.Value.includes("1"));
@@ -82,8 +82,8 @@ const iTotalValue = aData.reduce((iSum, oCurrent) => iSum + oCurrent.Value, 0); 
 const aUniqueObjects = aData.map(oData => ({ ID: oData.ID, Value: oData.Value })).filter((v, i, a) => a.findIndex(t => t.ID === v.ID) === i);
 
 // Array Object: Some
-aData.some((oData) => oData.Value > 1);   // => True 
-aData.some((oData) => oData.Value > 100); // => False
+aData.some((oData) => oData.Value > 1);   // => true 
+aData.some((oData) => oData.Value > 100); // => false
 
 // Array Object: Sort
 aData.sort((a, b) => a.Value.localeCompare(b.Value));

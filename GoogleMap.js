@@ -6,79 +6,98 @@
 const GOOGLE_API_KEY = "xxx";
 
 // Check Google API
-if (!google) {
-    // Error
+if (typeof google === 'undefined') {
+    throw new Error("Google API is not loaded");
 }
 
 // Get Current Address
-navigator.geolocation.getCurrentPosition(
-    async success => {
+navigator?.geolocation?.getCurrentPosition(
+    async ({ xCoordinate }) => {
         const oCoordinate = {
-            lat: success.coords.latitude + Math.random() * 50,
-            lng: success.coords.longitude + Math.random() * 50
+            lat: xCoordinate?.latitude + Math.random() * 50,
+            lng: xCoordinate?.longitude + Math.random() * 50
         };
-        const oAddress = await getAddressFromCoords(oCoordinate);
+
+        try {
+            const oAddress = await getAddressFromCoords(oCoordinate);
+        } catch (oError) {
+            console.error("Failed to get address:", oError);
+        }
     },
     error => {
-        console.log(error);
+        console.error("Geolocation error:", error);
     }
 );
 
 // Find Current Address
-const sAddress = oEvent.target.querySelector("input").value;
+const oHandleAddressInput = async (oEvent) => {
+    const sAddress = oEvent?.target?.querySelector("input")?.value?.trim();
 
-if (!sAddress || sAddress.trim().length === 0) {
-    alert("Invalid Address Entered - Please Try Again!");
-}
-
-try {
-    const oCoordinate = getCoordsFromAddress(sAddress);
-} catch (oError) {
-    alert(oError.message);
-}
-
-// Show Position
-const oMap = new google.maps.Map(document.getElementById("map"), {
-    center: oCoordinate,
-    zoom: 15
-});
-
-new google.maps.Marker({
-    position: oCoordinate,
-    map: map
-});
-
-// Get Address From Coordinates
-export async function getAddressFromCoords(oCoordinate) {
-    const oResponse = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${oCoordinate.lat},${oCoordinate.lng}&key=${GOOGLE_API_KEY}`);
-
-    if (!oResponse.ok) {
-        throw new Error("Failed to Fetch Address. Please Try Again!");
+    if (!sAddress) {
+        return alert("Invalid Address Entered - Please try again!");
     }
 
-    const oData = await oResponse.json();
+    try {
+        const oCoordinate = await getCoordsFromAddress(sAddress);
 
-    if (oData.error_message) {
-        throw new Error(oData.error_message);
+        displayMap(oCoordinate);
+    } catch (oError) {
+        alert(oError.message);
     }
+};
 
-    return oData.results[0].formatted_address;
-}
+// Show Position on Map
+const oMap = (oCoordinate) => {
+    const oMap = new google.maps.Map(document.getElementById("map"), {
+        center: oCoordinate,
+        zoom: 15
+    });
+
+    new google.maps.Marker({
+        position: oCoordinate,
+        map: oMap
+    });
+};
+
+// Get Address from Coordinates
+const getAddressFromCoords = async (oCoordinate) => {
+    try {
+        const oResponse = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${oCoordinate.lat},${oCoordinate.lng}&key=${GOOGLE_API_KEY}`);
+
+        if (!oResponse?.ok) throw new Error("Failed to fetch address. Please try again!");
+
+        const aData = await oResponse?.json();
+
+        if (aData?.error_message) throw new Error(aData?.error_message);
+
+        return aData?.results[0]?.formatted_address;
+    } catch (oError) {
+        console.error("Error fetching address:", oError);
+        throw oError;
+    }
+};
 
 // Get Coordinates From Address
-export async function getCoordsFromAddress(sAddress) {
-    const sURLAddress = encodeURI(sAddress);
-    const oResponse = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${sURLAddress}&key=${GOOGLE_API_KEY}`);
+const getCoordsFromAddress = async (sAddress) => {
+    try {
+        const sEncodedAddress = encodeURIComponent(sAddress);
+        const oResponse = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${sEncodedAddress}&key=${GOOGLE_API_KEY}`);
 
-    if (!oResponse.ok) {
-        throw new Error("Failed to fetch coordinates. Please try again!");
+        if (!oResponse?.ok) throw new Error("Failed to fetch coordinates. Please try again!");
+
+        const aData = await oResponse.json();
+
+        if (aData?.error_message) throw new Error(aData?.error_message);
+
+        return aData?.results[0]?.geometry?.location;
+    } catch (oError) {
+        console.error("Error fetching coordinates:", oError);
+        throw oError;
     }
+};
 
-    const oData = await oResponse.json();
-
-    if (oData.error_message) {
-        throw new Error(oData.error_message);
-    }
-
-    return oData.results[0].geometry.location;
-}
+// Add event listener for address input (assuming you have a form or input with id "address-form")
+document.getElementById("address-form").addEventListener("submit", oEvent => {
+    oEvent.preventDefault();
+    oHandleAddressInput(oEvent);
+});

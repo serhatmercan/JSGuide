@@ -44,4 +44,4 @@ oCar.CarName; // "Ford"
 oCarModel.show(); // "I have a Ford, it is a Mustang"
 
 // InstanceOf Operator
-oCar instanceof Car; // => True / False
+oCar instanceof Car; // => true / false
