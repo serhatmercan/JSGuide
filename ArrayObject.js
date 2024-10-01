@@ -25,6 +25,9 @@ const checkDuplicateObjectsInArray = (aData) => {
   return aData.length !== aUniqueData.length;
 };
 
+// Array Object: Check Duplicate Value In Array
+const bUnique = new Set(aData.map(oData => oData.Key)).size === 1 ? true : false;
+
 // Array Object: Delete Attribute
 aData.map(oItem => {
   delete oItem.Value;
