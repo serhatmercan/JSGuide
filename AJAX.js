@@ -56,10 +56,15 @@ getWeather(2487956);
 getWeather(44418);
 
 // AJAX: Fetch II with jQuery
+sURL = "/com/ittr/sf/ohp/loggedInUser.xsjs";
+sURL = "/sap/opu/odata/SAP/ZSM_TST_SRV/ValueSet?$filter=ID eq('X')";
+
 $.ajax({
+  accept: "application/json",
   cache: false,
+  contentType: "application/json",
   type: "GET",
-  url: "/sap/opu/odata/SAP/ZSM_TST_SRV/ValueSet?$filter=ID eq('X')",
+  url: sURL,
   dataType: "json",
   success: (oData) => {
     const xData = oData;

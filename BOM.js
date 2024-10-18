@@ -9,11 +9,11 @@ window.close(); // Close the Current Window
 // LOCATION
 location.href = "https://google.com.tr"; // Go To The Page
 
-const sCurrentHref = window.location.href; // "https://webidetesting8858993-dk724scipr.dispatcher.hana.ondemand.com/W3/Index.html?hc_orionpath=%2FDI_webide_di_workspacez78e48qhog5m41ls%2F_SerhatMercan_&neo-di-affinity=BIGipServerdisapwebide.hana.ondemand.com+%21%2BPww9mJ2k8K6ZDjBFsjSXGzGB7emvSP%2FRDvpOMGubM%2BzwgPdv27cqU4e2ze%2FKq%2B9dE7LYtTUu6TmE4M%3D&origional-url=Index.html&sap-ui-appCacheBuster=..%2F&sap-ui-xx-componentPreload=off"
-const sCurrentHostname = window.location.hostname; // "webidetesting8858993-dk724scipr.dispatcher.hana.ondemand.com"
-const sCurrentPathname = window.location.pathname; // "/W3/Index.html"
-const sCurrentProtocol = window.location.protocol; // "https:"
-const sCurrentPort = window.location.port; // ""
+const sCurrentHref = window.location.href; 			// "https://webidetesting8858993-dk724scipr.dispatcher.hana.ondemand.com/W3/Index.html?hc_orionpath=%2FDI_webide_di_workspacez78e48qhog5m41ls%2F_SerhatMercan_&neo-di-affinity=BIGipServerdisapwebide.hana.ondemand.com+%21%2BPww9mJ2k8K6ZDjBFsjSXGzGB7emvSP%2FRDvpOMGubM%2BzwgPdv27cqU4e2ze%2FKq%2B9dE7LYtTUu6TmE4M%3D&origional-url=Index.html&sap-ui-appCacheBuster=..%2F&sap-ui-xx-componentPreload=off"
+const sCurrentHostname = window.location.hostname; 	// "webidetesting8858993-dk724scipr.dispatcher.hana.ondemand.com"
+const sCurrentPathname = window.location.pathname; 	// "/W3/Index.html"
+const sCurrentProtocol = window.location.protocol; 	// "https:"
+const sCurrentPort = window.location.port; 			// ""
 
 window.location.assign("https://www.w3schools.com"); // Open Page in Current Page
 
