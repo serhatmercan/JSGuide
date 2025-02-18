@@ -15,3 +15,11 @@ oButton.removeEventListener("click", onClickButton);
 
 // Add Anonymous Function to Button
 oButton.addEventListener("click", oEvent => console.log(oEvent));
+
+// Window Event
+onInit = () => {
+    this.oClickHandler = () => console.count("clicked");
+    window.addEventListener("click", this.oClickHandler);
+}
+
+onExit = () => window.removeEventListener("click", this.oClickHandler);
