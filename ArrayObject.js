@@ -88,6 +88,11 @@ const aUniqueObjects = aData.map(oData => ({ ID: oData.ID, Value: oData.Value })
 aData.some((oData) => oData.Value > 1);   // => true 
 aData.some((oData) => oData.Value > 100); // => false
 
+// Array Object II: Some 
+bAppointmentExist = oDataView?.AppointmentBToHour?.results?.some(({ AppointmentHourToAppointment }) =>
+  AppointmentHourToAppointment?.results?.some(({ Xdolu }) => Xdolu)
+);
+
 // Array Object: Sort
 aData.sort((a, b) => a.Value.localeCompare(b.Value));
 
