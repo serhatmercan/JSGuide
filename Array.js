@@ -119,3 +119,14 @@ const convertCamelize = (aData) => {
 };
 
 convertCamelize("list-style-image"); // "listStyleImage"
+
+// Array: Assignment - Sort w/ For Loop
+const aData = [3, 8, 1, 4, 9, 0];
+
+for (let i = 0; i < aData.length; i++) {
+  for (let j = i + 1; j < aData.length; j++) {
+    if (aData[i] > aData[j]) {
+      [aData[i], aData[j]] = [aData[j], aData[i]];
+    }
+  }
+}
