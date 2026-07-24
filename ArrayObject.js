@@ -49,6 +49,17 @@ const aCopiedData = JSON.parse(JSON.stringify(aData));
 aData.every(oData => oData.Value > 1);  // => true 
 aData.every(oData => oData.Value > 10); // => false 
 
+// Array Object: Flat Map
+// Example: Split Comma Separated Values Into Array
+if (oData?.Apptp?.items?.length > 0 && oFilterData.Apptp.items.some((oItem) => oItem.key.includes(","))) {
+  oFilterData.Apptp.items =
+    oFilterData.Apptp.items.flatMap((oItem) =>
+      oItem.key.includes(",")
+        ? oItem.key.split(",").map((sKey) => ({ key: sKey.trim() }))
+        : [oItem]
+    );
+}
+
 // Array Object: Filter & Includes
 aData.filter(oData => oData.Value.includes("1"));
 
@@ -99,7 +110,7 @@ aData.sort((a, b) => a.Value.localeCompare(b.Value));
 // Array Object: Unique Array
 const xGroupedData = aData.reduce((oData, oItem) => {
   oData[oItem.Key] = [...oData[oItem.Key] || [], oItem];
-  return x;
+  return oData;
 }, {});
 
 Object.getOwnPropertyNames(xGroupedData);
@@ -116,3 +127,12 @@ const iCount = aMercans.reduce((iTotal, { Surname, ID }) => {
   }
   return iTotal;
 }, 0); // Return 9
+
+// Array Object: Split & Map & Filter & Map
+// Example: Split Comma Separated Years Into Array
+const aYears =
+  String(oFilterData.Erdat)
+    .split(",")
+    .map((sYear) => sYear.trim())
+    .filter((sYear) => /^\d{4}$/.test(sYear))
+    .map(Number);
