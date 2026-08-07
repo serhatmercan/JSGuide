@@ -5,12 +5,13 @@ function submitAJAX() {
 
   xhttp.onreadystatechange = () => {
     // Gets Everytime Fired When the XHR Request State Changes
-    if (this.readyState === 4 && this.status === 200) {
+    // NOTE: arrow functions have no own `this`, so use the `xhttp` reference directly instead of `this`
+    if (xhttp.readyState === 4 && xhttp.status === 200) {
       // 4 means Request is Finished & Response is Ready 200 Means OK
-      console.log(this.responseText); // This Refers Here to the XHR Object
+      console.log(xhttp.responseText); // This Refers Here to the XHR Object
 
-      if (this.responseXML) {
-        decodeXML(this);
+      if (xhttp.responseXML) {
+        decodeXML(xhttp);
       }
     }
   };
@@ -55,8 +56,8 @@ async function getWeather(WOEID) {
 getWeather(2487956);
 getWeather(44418);
 
-// AJAX: Fetch II with jQuery
-sURL = "/com/ittr/sf/ohp/loggedInUser.xsjs";
+// AJAX: Fetch II with jQuery (third-party library, requires jQuery to be loaded)
+let sURL = "/com/ittr/sf/ohp/loggedInUser.xsjs";
 sURL = "/sap/opu/odata/SAP/ZSM_TST_SRV/ValueSet?$filter=ID eq('X')";
 
 $.ajax({

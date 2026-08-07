@@ -11,7 +11,7 @@ aData.map(oData => ({
 }));
 
 // Array Object: Check Duplicate Objects In Array w/ Two Fields
-checkDuplicate = (aData) => {
+const checkDuplicate = (aData) => {
   const xData = new Set();
   return aData.some(({ FieldI, FieldII }) => {
     const sKey = `${FieldI}-${FieldII}`;
@@ -25,8 +25,8 @@ const checkDuplicateObjectsInArray = (aData) => {
   return aData.length !== aUniqueData.length;
 };
 
-// Array Object: Check Duplicate Value In Array
-const bUnique = new Set(aData.map(oData => oData.Key)).size === 1 ? true : false;
+// Array Object: Check Duplicate Value In Array (true when at least one Key repeats)
+const bHasDuplicateKeys = new Set(aData.map(oData => oData.Key)).size !== aData.length;
 
 // Array Object: Delete Attribute
 aData.map(oItem => {
@@ -35,11 +35,12 @@ aData.map(oItem => {
 });
 
 // Array Object: Delete Duplicate Object Field
-aUniqueData = aFullData.reduce((aData, oCurrent) => {
-  if (!aData.some(oData => oData.Pltyp === oCurrent.Pltyp)) {
-    aData.push(oCurrent);
+const aFullData = aData;
+const aUniqueData = aFullData.reduce((aResult, oCurrent) => {
+  if (!aResult.some(oData => oData.Pltyp === oCurrent.Pltyp)) {
+    aResult.push(oCurrent);
   }
-  return aData;
+  return aResult;
 }, []);
 
 // Array Object: Delete Reference
@@ -99,8 +100,8 @@ const aUniqueObjects = aData.map(oData => ({ ID: oData.ID, Value: oData.Value })
 aData.some((oData) => oData.Value > 1);   // => true 
 aData.some((oData) => oData.Value > 100); // => false
 
-// Array Object II: Some 
-bAppointmentExist = oDataView?.AppointmentBToHour?.results?.some(({ AppointmentHourToAppointment }) =>
+// Array Object II: Some
+const bAppointmentExist = oDataView?.AppointmentBToHour?.results?.some(({ AppointmentHourToAppointment }) =>
   AppointmentHourToAppointment?.results?.some(({ Xdolu }) => Xdolu)
 );
 

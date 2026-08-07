@@ -22,12 +22,15 @@ const oUser = {
   Name: "Serhat",
 };
 
-sayHello = sValue => console.log(sValue + " " + this.Name);
+// NOTE: arrow functions have no own `this`, so .bind() cannot rebind it - use a regular function instead
+function sayHello(sValue) {
+  console.log(sValue + " " + this.Name);
+}
 
 sayHello.bind(oUser)("Hello"); // Hello Serhat
 
 // Default Parameters
-getPersonInformations = (sFirstName, sLastName, sUserName = "SMERCAN") => console.log(`${sFirstName} ${sLastName} ${sUserName}`);
+const getPersonInformations = (sFirstName, sLastName, sUserName = "SMERCAN") => console.log(`${sFirstName} ${sLastName} ${sUserName}`);
 getPersonInformations("Serhat", "Mercan");             // => Serhat Mercan SMERCAN             
 getPersonInformations("Serhat", "Mercan", "XSMERCAN"); // => Serhat Mercan XSMERCAN
 

@@ -83,7 +83,10 @@ const iTotalValue = aNumbers.reduce((iSum, oCurrent) => iSum + oCurrent, 0); // 
 aData.shift(); // => FB
 
 // Array: Remove Item w/ Index
-delete aData[0]; // => aData = ["Elif","Selim","Mercan"]
+// NOTE: `delete` only removes the value and leaves an empty/undefined hole, it does NOT re-index the array.
+// Use splice() instead when you actually want to remove an item.
+delete aData[0]; // => aData = [<empty>, "Selim", "Elif", "Selim", "Mercan"]
+aData.splice(0, 1); // => Correct way to remove an item by index -> aData = ["Selim", "Elif", "Selim", "Mercan"]
 
 // Array: Remove Items w/ Indexes (Begin Index, Items Count)
 aData.splice(2, 1); // => ["Mercan"]  => aData = ["Selim", "Elif"]
@@ -121,12 +124,12 @@ const convertCamelize = (aData) => {
 convertCamelize("list-style-image"); // "listStyleImage"
 
 // Array: Assignment - Sort w/ For Loop
-const aData = [3, 8, 1, 4, 9, 0];
+const aSortData = [3, 8, 1, 4, 9, 0];
 
-for (let i = 0; i < aData.length; i++) {
-  for (let j = i + 1; j < aData.length; j++) {
-    if (aData[i] > aData[j]) {
-      [aData[i], aData[j]] = [aData[j], aData[i]];
+for (let i = 0; i < aSortData.length; i++) {
+  for (let j = i + 1; j < aSortData.length; j++) {
+    if (aSortData[i] > aSortData[j]) {
+      [aSortData[i], aSortData[j]] = [aSortData[j], aSortData[i]];
     }
   }
 }

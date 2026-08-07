@@ -12,14 +12,15 @@ if (typeof google === 'undefined') {
 
 // Get Current Address
 navigator?.geolocation?.getCurrentPosition(
-    async ({ xCoordinate }) => {
+    async ({ coords }) => {
         const oCoordinate = {
-            lat: xCoordinate?.latitude + Math.random() * 50,
-            lng: xCoordinate?.longitude + Math.random() * 50
+            lat: coords?.latitude + Math.random() * 50,
+            lng: coords?.longitude + Math.random() * 50
         };
 
         try {
             const oAddress = await getAddressFromCoords(oCoordinate);
+            console.log(oAddress);
         } catch (oError) {
             console.error("Failed to get address:", oError);
         }
@@ -47,7 +48,7 @@ const oHandleAddressInput = async (oEvent) => {
 };
 
 // Show Position on Map
-const oMap = (oCoordinate) => {
+const displayMap = (oCoordinate) => {
     const oMap = new google.maps.Map(document.getElementById("map"), {
         center: oCoordinate,
         zoom: 15

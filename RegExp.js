@@ -37,9 +37,10 @@ sText.match(/10?/g); // => ["1"]
 // Check String Contains Number
 /\d/.test(sText); // true
 
-// Get Left / Right ConsText
-sText.leftConsText;  // => "Serhat mercan serhat "
-sText.rightConsText; // => " SERHAT MERCAN 1234567890"
+// Get Left / Right Context (there is no built-in leftContext/rightContext on strings - use slice with the match index)
+const oMatch = sText.match(/Mercan/);
+const sLeftContext = oMatch ? sText.slice(0, oMatch.index) : "";   // => "Serhat mercan serhat "
+const sRightContext = oMatch ? sText.slice(oMatch.index + oMatch[0].length) : ""; // => " SERHAT MERCAN 1234567890"
 
 // Replace sText
 sText.replace(/Serhat/gi, "Selim"); // => "Selim mercan Selim Mercan Selim MERCAN 1234567890"
@@ -72,9 +73,8 @@ sText.match(/[^Serhat ]/gi); // => ["m", "c", "n", "M", "c", "n", "M", "C", "N",
 sText.match(/[^a-zA-Z ]/g); // => ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
 // Function: Convert String Concatenate & Upper Case
-const aData = ["AbcIndicator"];
-const aConvertedData = aData.forEach(sData => convertString(sData)); // => ["ABC_INDICATOR"]
+// NOTE: forEach() always returns undefined - use map() to build a new array, and define the function before calling it
+const convertString = (sString) => sString.replace(/([A-Z])/g, '_$1').trim().toUpperCase();
 
-convertString(sString => {
-    sString.replace(/([A-Z])/g, '_$1')?.trim()?.toUpperCase()?.slice(1);
-})
+const aData = ["AbcIndicator"];
+const aConvertedData = aData.map(sData => convertString(sData)); // => ["ABC_INDICATOR"]

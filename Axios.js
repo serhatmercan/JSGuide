@@ -15,9 +15,10 @@ async function fetchPosts() {
         aListOfPosts?.forEach(oPost => {
             const oPostEl = document.importNode(oPostTemplate?.content, true);
 
-            oPostEl?.querySelector("h2")?.textContent = oPost?.title?.toUpperCase();
-            oPostEl?.querySelector("p")?.textContent = oPost?.body;
-            oPostEl?.querySelector("li")?.id = oPost?.id;
+            // NOTE: `?.` cannot be used as an assignment target (SyntaxError) - assign directly, elements exist here
+            oPostEl.querySelector("h2").textContent = oPost?.title?.toUpperCase();
+            oPostEl.querySelector("p").textContent = oPost?.body;
+            oPostEl.querySelector("li").id = oPost?.id;
 
             oListElement?.append(oPostEl);
         });

@@ -13,18 +13,18 @@ const xCopyData = {
 };
 
 // Definition & Declaration
-oData = {
+const oRecord = {
   ID: "X",
   Key: "123",
   Text: "XYZ"
 };
 
-const { Key, Text } = oData;
+const { Key, Text } = oRecord;
 
 Key; //  "123
 Text; // "XYZ"
 
-const { Key: sKey, Text: sTextII } = oData;
+const { Key: sKey, Text: sTextII } = oRecord;
 
 sKey; //  "123
 sTextII; // "XYZ"

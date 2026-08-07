@@ -1,7 +1,11 @@
 // Call Parent
 const oItem = this.byId("Item").getDomRef(); // => this.document.getElementById("Item").
 
-oItem?.parentElement?.style?.width = "100%";
+// NOTE: optional chaining (?.) cannot be used as an assignment target (SyntaxError).
+// Guard first, then assign.
+if (oItem?.parentElement) {
+  oItem.parentElement.style.width = "100%";
+}
 
 // Find HTML Elements
 document.getElementById("Element");           // Find Element w/ ID	          => ID     = "Element"
@@ -17,9 +21,13 @@ document.forms["Form"][0];                    // Find Element w/ Form			    => F
 </div>
 */
 
-this.document.getElementById("Demo")?.style?.dispaly = "none";            // Hide Element
-this.document.getElementById("Demo")?.style?.color = "blue";              // Change Element Text Color
-this.document.getElementById("Demo")?.style?.backgroundColor = "#1ec5e5"; // Change Element Text Background Color
+// NOTE: `?.` can only be used to READ safely, never as an assignment target - guard first instead.
+const oDemoEl = this.document.getElementById("Demo");
+if (oDemoEl) {
+  oDemoEl.style.display = "none";            // Hide Element (fixed typo: dispaly -> display)
+  oDemoEl.style.color = "blue";              // Change Element Text Color
+  oDemoEl.style.backgroundColor = "#1ec5e5"; // Change Element Text Background Color
+}
 
 // HTML Events: click - change - focus - mouseover - mouseout - mousedown - mouseup - mousemove
 // Click - 1
@@ -37,7 +45,7 @@ function sayHello() {
 const oParagraph = document.createElement("p");
 const oNode = document.createTextNode("This is a new paragraph");
 const oChild = document.getElementById("Demo");
-const oParent = document.getElementById("Div");
+let oParent = document.getElementById("Div"); // let: reassigned to null below, const would throw "Assignment to constant variable"
 
 oParagraph.appendChild(oNode);            // Creating a New Nodes
 oParent.appendChild(oParagraph);          // Add Node To Division Ending
@@ -51,18 +59,18 @@ document.body.removeChild(oParent);                         // Remove Item From 
 oParent.remove();                                           // Remove Item From Body
 oParent = null;                                             // Clear Item
 
-// Collection
+// Collection: getElementsByTagName() returns an HTMLCollection - it has NO forEach, convert it first
 const aCollections = document.getElementsByTagName("p");
 
-aCollections.forEach(oCollection => {
-  oCollection?.style?.color = "red";
+Array.from(aCollections).forEach(oCollection => {
+  oCollection.style.color = "red";
 });
 
-// Nodes List
+// Nodes List: querySelectorAll() returns a NodeList, which DOES support forEach directly
 const aNodes = document.querySelectorAll("p");
 
 aNodes.forEach(oNode => {
-  oNode?.style?.color = "red";
+  oNode.style.color = "red";
 });
 
 // Create Element in HTML
@@ -97,24 +105,25 @@ const createElement = (oData) => {
 
 // Delete Element in HTML
 const deleteElement = (sID) => {
-  const iDataIndex = aData.findIndex(oData => oData.sID === sID);
+  const iDataIndex = aData.findIndex(oData => oData.id === sID); // NOTE: property is `id`, not `sID`
 
-  aData.splice(sID, 1);
+  aData.splice(iDataIndex, 1); // NOTE: splice() takes an index, not the id itself
   document.getElementById("List")?.children[iDataIndex]?.remove();
 };
 
 // HTML DOM Audio Object
-onRecord = (oEvent) => {
+const onRecord = (oEvent) => {
   const oParent = oEvent?.getSource()?.getParent();
   const oContext = oParent?.getParent()?.getBindingContext()?.getObject();
   const oAudio = document.createElement("audio");
   const oSource = document.createElement("source");
 
-  oSource?.type = "audio/mpeg";
-  oSource?.src = oContext?.CallRecUrl;
+  // NOTE: `?.` cannot be used as an assignment target (SyntaxError) - assign directly, elements exist here
+  oSource.type = "audio/mpeg";
+  oSource.src = oContext?.CallRecUrl;
 
-  oAudio?.appendChild(oSource);
-  oAudio?.controls = true;
+  oAudio.appendChild(oSource);
+  oAudio.controls = true;
 
   if (!oParent || !oAudio) return;
 

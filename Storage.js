@@ -48,10 +48,13 @@ oDBRequest.onupgradeneeded = oEvent => {
 
     const oStore = oDB?.createObjectStore("Products", { keyPath: "ID" });
 
-    oStore?.transaction?.oncomplete = () => {
-        const oProductsStore = oDB?.transaction("Products", "readwrite").objectStore("Products");
-        oProductsStore?.add({ ID: "PI", Title: "A First Product", Price: 12.99 });
-    };
+    // NOTE: `?.` cannot be used as an assignment target (SyntaxError) - guard then assign
+    if (oStore?.transaction) {
+        oStore.transaction.oncomplete = () => {
+            const oProductsStore = oDB?.transaction("Products", "readwrite").objectStore("Products");
+            oProductsStore?.add({ ID: "PI", Title: "A First Product", Price: 12.99 });
+        };
+    }
 };
 
 // Reach Indexed DB
@@ -67,7 +70,8 @@ const addProduct = (oProduct) => {
 };
 const getProduct = (sID) => {
     const oRequest = oProductsStore?.get(sID);
-    oRequest?.onsuccess = () => console.log(oRequest.result);
+    // NOTE: `?.` cannot be used as an assignment target (SyntaxError) - guard then assign
+    if (oRequest) oRequest.onsuccess = () => console.log(oRequest.result);
 };
 
 // Add Item to IndexedDB

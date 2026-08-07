@@ -10,4 +10,4 @@ switch (iValue) {
 	default:
 		console.log("Value is " + iValue);
 		break;
-}	
+}

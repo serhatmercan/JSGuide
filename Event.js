@@ -17,9 +17,9 @@ oButton.removeEventListener("click", onClickButton);
 oButton.addEventListener("click", oEvent => console.log(oEvent));
 
 // Window Event
-onInit = () => {
+const onInit = () => {
     this.oClickHandler = () => console.count("clicked");
     window.addEventListener("click", this.oClickHandler);
 }
 
-onExit = () => window.removeEventListener("click", this.oClickHandler);
+const onExit = () => window.removeEventListener("click", this.oClickHandler);
