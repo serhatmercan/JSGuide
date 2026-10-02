@@ -57,7 +57,7 @@ getWeather(2487956);
 getWeather(44418);
 
 // AJAX: Fetch II with jQuery (third-party library, requires jQuery to be loaded)
-let sURL = "/com/ittr/sf/ohp/loggedInUser.xsjs";
+let sURL = "/example/service.xsjs";
 sURL = "/sap/opu/odata/SAP/ZSM_TST_SRV/ValueSet?$filter=ID eq('X')";
 
 $.ajax({
