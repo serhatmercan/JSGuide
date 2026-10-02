@@ -114,10 +114,26 @@ These examples are educational/reference material. Some snippets assume a specif
 
 This is primarily a personal learning repository, but suggestions and corrections are welcome via issues or pull requests.
 
+## Related Guides
+
+| Guide | Focus |
+|---|---|
+| [ABAPGuide](https://github.com/serhatmercan/ABAPGuide) | ABAP language and techniques, classic to modern |
+| [CDSGuide](https://github.com/serhatmercan/CDSGuide) | ABAP CDS, structured route through both generations |
+| [CDS-Cookbook](https://github.com/serhatmercan/CDS-Cookbook) | CDS and AMDP pattern library |
+| [GWGuide](https://github.com/serhatmercan/GWGuide) | SAP Gateway: SEGW and OData V2 |
+| [UIGuide](https://github.com/serhatmercan/UIGuide) | SAPUI5 and Fiori control and pattern reference |
+| **JSGuide** (this repository) | Plain JavaScript and browser APIs |
+| [PYGuide](https://github.com/serhatmercan/PYGuide) | Python reference with verified outputs |
+
+## Author
+
+**Serhat Mercan** — SAP BTP & AI Technical Lead | Generative AI for SAP | ABAP & SAP Fiori/UI5
+
+- LinkedIn: [serhat-mercan](https://www.linkedin.com/in/serhat-mercan/)
+- E-mail: serhatmercan94@gmail.com
+- GitHub: [serhatmercan](https://github.com/serhatmercan)
+
 ## License
 
 See [LICENSE](LICENSE).
-
-## Contact
-
-Serhat Mercan
